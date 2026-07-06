@@ -1,0 +1,5 @@
+[
+  { "id": "1", "unread": true, "text": "New lead qualified by AI: Rahul Sharma", "time": "2 mins ago", "category": "lead" },
+  { "id": "2", "unread": false, "text": "SOP training updated successfully", "time": "1 hour ago", "category": "system" },
+  { "id": "3", "unread": true, "text": "Missed call from +91 90012 34567", "time": "4 hours ago", "category": "call" }
+]

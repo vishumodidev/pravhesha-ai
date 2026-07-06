@@ -1,0 +1,51 @@
+{
+  "leadsOverview": [
+    { "name": "May 15", "Current": 220, "Last": 190 },
+    { "name": "May 16", "Current": 290, "Last": 210 },
+    { "name": "May 17", "Current": 260, "Last": 230 },
+    { "name": "May 18", "Current": 380, "Last": 250 },
+    { "name": "May 19", "Current": 410, "Last": 290 },
+    { "name": "May 20", "Current": 360, "Last": 310 },
+    { "name": "May 21", "Current": 450, "Last": 330 }
+  ],
+  "leadsSource": [
+    { "name": "Website", "value": 428, "color": "#2563eb" },
+    { "name": "Facebook", "value": 248, "color": "#3b82f6" },
+    { "name": "Instagram", "value": 196, "color": "#a855f7" },
+    { "name": "WhatsApp", "value": 156, "color": "#10b981" },
+    { "name": "Referral", "value": 120, "color": "#f59e0b" },
+    { "name": "Others", "value": 100, "color": "#64748b" }
+  ],
+  "conversationTrend": [
+    { "name": "May 15", "Calls": 180, "WhatsApp": 220, "Email": 90, "Chats": 120 },
+    { "name": "May 16", "Calls": 220, "WhatsApp": 280, "Email": 110, "Chats": 150 },
+    { "name": "May 17", "Calls": 200, "WhatsApp": 250, "Email": 95, "Chats": 130 },
+    { "name": "May 18", "Calls": 250, "WhatsApp": 310, "Email": 130, "Chats": 180 },
+    { "name": "May 19", "Calls": 290, "WhatsApp": 360, "Email": 150, "Chats": 210 },
+    { "name": "May 20", "Calls": 260, "WhatsApp": 320, "Email": 140, "Chats": 190 },
+    { "name": "May 21", "Calls": 320, "WhatsApp": 410, "Email": 170, "Chats": 240 }
+  ],
+  "ticketsOverview": [
+    { "name": "May 15", "Open": 10, "Progress": 15, "Resolved": 25 },
+    { "name": "May 16", "Open": 15, "Progress": 18, "Resolved": 30 },
+    { "name": "May 17", "Open": 12, "Progress": 14, "Resolved": 28 },
+    { "name": "May 18", "Open": 22, "Progress": 25, "Resolved": 35 },
+    { "name": "May 19", "Open": 28, "Progress": 30, "Resolved": 42 },
+    { "name": "May 20", "Open": 20, "Progress": 22, "Resolved": 38 },
+    { "name": "May 21", "Open": 25, "Progress": 28, "Resolved": 48 }
+  ],
+  "teamData": [
+    { "name": "Priya Mehta", "role": "Sales Lead", "leads": 156, "customers": 32, "conversion": 20.5, "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150" },
+    { "name": "Vikram Patel", "role": "Support Specialist", "leads": 132, "customers": 28, "conversion": 21.2, "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150" },
+    { "name": "Anjali Singh", "role": "Solutions Agent", "leads": 118, "customers": 25, "conversion": 21.2, "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150" },
+    { "name": "Rahul Desai", "role": "Account Exec", "leads": 104, "customers": 21, "conversion": 20.2, "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150" }
+  ],
+  "sourcePerformance": [
+    { "source": "Website", "leads": 428, "customers": 128, "conv": "29.9%", "percentage": 80 },
+    { "source": "Facebook", "leads": 248, "customers": 68, "conv": "27.4%", "percentage": 65 },
+    { "source": "Instagram", "leads": 196, "customers": 46, "conv": "23.5%", "percentage": 50 },
+    { "source": "WhatsApp", "leads": 156, "customers": 42, "conv": "26.9%", "percentage": 60 },
+    { "source": "Referral", "leads": 120, "customers": 26, "conv": "21.7%", "percentage": 40 },
+    { "source": "Others", "leads": 100, "customers": 10, "conv": "10.0%", "percentage": 20 }
+  ]
+}

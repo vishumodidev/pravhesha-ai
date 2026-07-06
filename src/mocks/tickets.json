@@ -1,0 +1,83 @@
+{
+  "tickets": [
+    {
+      "id": "TKT-1248",
+      "subject": "Unable to login to account",
+      "category": "Account Access",
+      "customerName": "Rahul Sharma",
+      "customerEmail": "rahul.sharma@email.com",
+      "source": "Website",
+      "priority": "High",
+      "status": "Open",
+      "assignedAgent": "Priya Mehta",
+      "agentAvatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150",
+      "updatedTime": "20 May, 10:30 AM",
+      "description": "I am unable to login to my account. It shows 'Invalid credentials' even though I am using the correct password.",
+      "clientSince": "Apr 12, 2024",
+      "totalClientTickets": 5,
+      "messages": [
+        { "sender": "customer", "name": "Rahul Sharma", "time": "May 20, 10:30 AM", "text": "I am unable to login to my account. It shows 'Invalid credentials' even though I am using the correct password." },
+        { "sender": "agent", "name": "Priya Mehta", "time": "May 20, 10:32 AM", "text": "Hi Rahul, sorry for the inconvenience. Let me check this for you. Could you try resetting your password?" },
+        { "sender": "customer", "name": "Rahul Sharma", "time": "May 20, 10:34 AM", "text": "I tried resetting, but didn't receive the password reset link email." },
+        { "sender": "agent", "name": "Priya Mehta", "time": "May 20, 10:36 AM", "text": "I have resent the password reset link. Please check your inbox and spam folder." }
+      ]
+    },
+    {
+      "id": "TKT-1247",
+      "subject": "Payment not reflecting",
+      "category": "Payments",
+      "customerName": "Amit Verma",
+      "customerEmail": "amit.verma@email.com",
+      "source": "Mobile App",
+      "priority": "High",
+      "status": "In Progress",
+      "assignedAgent": "Vikram Patel",
+      "agentAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150",
+      "updatedTime": "20 May, 09:15 AM",
+      "description": "I made a payment of ₹15,000 for the Premium plan upgrade. The amount was debited, but my dashboard still shows the Standard plan.",
+      "clientSince": "Mar 15, 2024",
+      "totalClientTickets": 2,
+      "messages": [
+        { "sender": "customer", "name": "Amit Verma", "time": "May 20, 09:15 AM", "text": "I made a payment of ₹15,000 for the Premium plan upgrade. The amount was debited, but my dashboard still shows standard." }
+      ]
+    },
+    {
+      "id": "TKT-1246",
+      "subject": "Feature request: Dark mode",
+      "category": "Feature Request",
+      "customerName": "Sneha Iyer",
+      "customerEmail": "sneha.iyer@email.com",
+      "source": "Email",
+      "priority": "Medium",
+      "status": "Open",
+      "assignedAgent": "Anjali Singh",
+      "agentAvatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150",
+      "updatedTime": "20 May, 08:45 AM",
+      "description": "Our team works late at night and a dark mode interface would greatly reduce eye strain. Are there plans to implement this soon?",
+      "clientSince": "May 01, 2024",
+      "totalClientTickets": 1,
+      "messages": [
+        { "sender": "customer", "name": "Sneha Iyer", "time": "May 20, 08:45 AM", "text": "Our team works late at night and a dark mode interface would help. Are there plans for this?" }
+      ]
+    },
+    {
+      "id": "TKT-1245",
+      "subject": "App crash on startup",
+      "category": "Technical Issue",
+      "customerName": "Dinesh Kumar",
+      "customerEmail": "dinesh.kumar@email.com",
+      "source": "Mobile App",
+      "priority": "High",
+      "status": "Open",
+      "assignedAgent": "Rahul Desai",
+      "agentAvatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150",
+      "updatedTime": "19 May, 07:30 PM",
+      "description": "The Android application crashes immediately on the loading splash screen. I tried reinstalling, but the issue persists.",
+      "clientSince": "Jan 10, 2024",
+      "totalClientTickets": 8,
+      "messages": [
+        { "sender": "customer", "name": "Dinesh Kumar", "time": "May 19, 07:30 PM", "text": "The Android application crashes immediately on startup. I tried reinstalling." }
+      ]
+    }
+  ]
+}

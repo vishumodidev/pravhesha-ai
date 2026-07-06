@@ -1,0 +1,58 @@
+{
+  "meetings": {
+    "Wed 15": [
+      { "time": "09:00 AM", "title": "Product Demo", "client": "Rahul Sharma", "status": "Confirmed", "color": "bg-indigo-50 text-indigo-700 border-indigo-200" },
+      { "time": "11:00 AM", "title": "Consultation Call", "client": "Amit Verma", "status": "Confirmed", "color": "bg-emerald-50 text-emerald-700 border-emerald-200" },
+      { "time": "02:00 PM", "title": "Solution Discussion", "client": "Neha Patel", "status": "Confirmed", "color": "bg-purple-50 text-purple-700 border-purple-200" },
+      { "time": "04:00 PM", "title": "Follow Up Call", "client": "Sneha Iyer", "status": "Pending", "color": "bg-amber-50 text-amber-700 border-amber-200" }
+    ],
+    "Thu 16": [
+      { "time": "10:00 AM", "title": "Pricing Discussion", "client": "Dinesh Kumar", "status": "Confirmed", "color": "bg-indigo-50 text-indigo-700 border-indigo-200" },
+      { "time": "12:00 PM", "title": "Demo Call", "client": "Manish Jain", "status": "Pending", "color": "bg-amber-50 text-amber-700 border-amber-200" },
+      { "time": "03:00 PM", "title": "Product Walkthrough", "client": "Pooja Nair", "status": "Confirmed", "color": "bg-indigo-50 text-indigo-700 border-indigo-200" },
+      { "time": "05:00 PM", "title": "Contract Review", "client": "Kavya Reddy", "status": "Cancelled", "color": "bg-rose-50 text-rose-700 border-rose-200" }
+    ],
+    "Fri 17": [
+      { "time": "09:30 AM", "title": "Strategy Call", "client": "Priya Mehta", "status": "Confirmed", "color": "bg-emerald-50 text-emerald-700 border-emerald-200" },
+      { "time": "01:00 PM", "title": "Integration Demo", "client": "Rohit Gupta", "status": "Confirmed", "color": "bg-purple-50 text-purple-700 border-purple-200" },
+      { "time": "04:30 PM", "title": "Check-in Call", "client": "Sandeep Yadav", "status": "Pending", "color": "bg-amber-50 text-amber-700 border-amber-200" }
+    ],
+    "Sat 18": [
+      { "time": "11:00 AM", "title": "Technical Discussion", "client": "Vikram Patel", "status": "Pending", "color": "bg-amber-50 text-amber-700 border-amber-200" },
+      { "time": "02:30 PM", "title": "Onboarding Call", "client": "Anjali Singh", "status": "Confirmed", "color": "bg-indigo-50 text-indigo-700 border-indigo-200" }
+    ],
+    "Sun 19": [],
+    "Mon 20": [
+      { "time": "10:30 AM", "title": "Renewal Discussion", "client": "BrightCo", "status": "Confirmed", "color": "bg-emerald-50 text-emerald-700 border-emerald-200" },
+      { "time": "01:30 PM", "title": "Training Session", "client": "Team Training", "status": "Confirmed", "color": "bg-purple-50 text-purple-700 border-purple-200" },
+      { "time": "04:00 PM", "title": "Follow Up", "client": "Rakesh Joshi", "status": "Pending", "color": "bg-amber-50 text-amber-700 border-amber-200" }
+    ],
+    "Tue 21": [
+      { "time": "09:00 AM", "title": "Demo Call", "client": "FutureX Solutions", "status": "Confirmed", "color": "bg-indigo-50 text-indigo-700 border-indigo-200" },
+      { "time": "12:00 PM", "title": "Support Call", "client": "Alpha Tech", "status": "Cancelled", "color": "bg-rose-50 text-rose-700 border-rose-200" },
+      { "time": "03:30 PM", "title": "Project Discussion", "client": "Globex Corp", "status": "Confirmed", "color": "bg-indigo-50 text-indigo-700 border-indigo-200" }
+    ]
+  },
+  "followUps": [
+    { "id": "1", "title": "Demo Call", "detail": "Discuss enterprise plan", "leadName": "Rahul Sharma", "company": "TechNova Solutions", "type": "Phone Call", "dueDate": "May 21, 2024", "dueTime": "10:30 AM", "dueStatus": "Due Today", "priority": "High", "agentName": "Priya Mehta", "agentAvatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150", "status": "Pending", "lastContact": "May 18, 2024 11:20 AM" },
+    { "id": "2", "title": "Send Proposal", "detail": "Share pricing and timeline", "leadName": "Amit Verma", "company": "Innovix Tech", "type": "Email", "dueDate": "May 21, 2024", "dueTime": "12:00 PM", "dueStatus": "Due Today", "priority": "High", "agentName": "Vikram Patel", "agentAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150", "status": "Pending", "lastContact": "May 16, 2024 09:15 AM" },
+    { "id": "3", "title": "Follow up on pricing", "detail": "Check budget & approval", "leadName": "Sneha Iyer", "company": "BrightCo", "type": "WhatsApp", "dueDate": "May 22, 2024", "dueTime": "09:00 AM", "dueStatus": "In 1 day", "priority": "Medium", "agentName": "Anjali Singh", "agentAvatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150", "status": "Pending", "lastContact": "May 18, 2024 04:25 PM" },
+    { "id": "4", "title": "Product Demo", "detail": "Show product features", "leadName": "Dinesh Kumar", "company": "Globex Corporation", "type": "Meeting", "dueDate": "May 22, 2024", "dueTime": "11:30 AM", "dueStatus": "In 1 day", "priority": "High", "agentName": "Rahul Desai", "agentAvatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=150", "status": "Confirmed", "lastContact": "May 20, 2024 10:10 AM" },
+    { "id": "5", "title": "Send Case Study", "detail": "Share relevant case study", "leadName": "Neha Patel", "company": "FutureX Solutions", "type": "Email", "dueDate": "May 23, 2024", "dueTime": "03:00 PM", "dueStatus": "In 2 days", "priority": "Low", "agentName": "Priya Mehta", "agentAvatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150", "status": "Pending", "lastContact": "May 19, 2024 06:20 PM" },
+    { "id": "6", "title": "Check Integration", "detail": "Discuss API integration", "leadName": "Manish Jain", "company": "Infini Systems", "type": "Phone Call", "dueDate": "May 24, 2024", "dueTime": "10:00 AM", "dueStatus": "In 3 days", "priority": "Medium", "agentName": "Vikram Patel", "agentAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150", "status": "Pending", "lastContact": "May 20, 2024 02:15 PM" },
+    { "id": "7", "title": "Renewal Discussion", "detail": "Plan renewal conversation", "leadName": "Kavya Reddy", "company": "NextGen Labs", "type": "Meeting", "dueDate": "May 24, 2024", "dueTime": "02:30 PM", "dueStatus": "In 3 days", "priority": "High", "agentName": "Anjali Singh", "agentAvatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150", "status": "Pending", "lastContact": "May 17, 2024 05:45 PM" }
+  ],
+  "followUpOverview": [
+    { "name": "Due Today", "value": 156, "color": "#f59e0b" },
+    { "name": "Upcoming", "value": 542, "color": "#3b82f6" },
+    { "name": "Overdue", "value": 127, "color": "#ef4444" },
+    { "name": "Completed", "value": 423, "color": "#10b981" }
+  ],
+  "followUpTypes": [
+    { "type": "Phone Call", "count": 428, "pct": 90 },
+    { "type": "Email", "count": 356, "pct": 75 },
+    { "type": "WhatsApp", "count": 268, "pct": 55 },
+    { "type": "Meeting", "count": 146, "pct": 30 },
+    { "type": "Task", "count": 50, "pct": 10 }
+  ]
+}

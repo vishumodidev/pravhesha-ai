@@ -1,0 +1,28 @@
+{
+  "performance": [
+    { "name": "May 15", "Accuracy": 86, "Useful": 78, "Time": 2.1 },
+    { "name": "May 16", "Accuracy": 87, "Useful": 80, "Time": 1.9 },
+    { "name": "May 17", "Accuracy": 89, "Useful": 82, "Time": 1.8 },
+    { "name": "May 18", "Accuracy": 90, "Useful": 81, "Time": 1.7 },
+    { "name": "May 19", "Accuracy": 91, "Useful": 84, "Time": 1.6 },
+    { "name": "May 20", "Accuracy": 92, "Useful": 86, "Time": 1.5 },
+    { "name": "May 21", "Accuracy": 92.4, "Useful": 87.6, "Time": 1.42 }
+  ],
+  "categories": [
+    { "name": "Product Info", "value": 399, "color": "#4f46e5" },
+    { "name": "FAQs", "value": 312, "color": "#10b981" },
+    { "name": "Pricing & Plans", "value": 200, "color": "#f59e0b" },
+    { "name": "Policies", "value": 137, "color": "#e11d48" },
+    { "name": "Scripts & Phrases", "value": 112, "color": "#8b5cf6" },
+    { "name": "Others", "value": 88, "color": "#64748b" }
+  ],
+  "records": [
+    { "id": "1", "title": "Product Catalog 2024.pdf", "type": "Document", "category": "Product Information", "records": 245, "lastUpdated": "May 21, 2024 09:30 AM", "status": "Trained" },
+    { "id": "2", "title": "General FAQs", "type": "FAQ", "category": "FAQs", "records": 512, "lastUpdated": "May 20, 2024 04:15 PM", "status": "Trained" },
+    { "id": "3", "title": "Pricing & Plans Info", "type": "Document", "category": "Pricing & Plans", "records": 189, "lastUpdated": "May 19, 2024 11:20 AM", "status": "Trained" },
+    { "id": "4", "title": "Refund & Cancellation Policy", "type": "Document", "category": "Policies", "records": 128, "lastUpdated": "May 18, 2024 02:45 PM", "status": "Trained" },
+    { "id": "5", "title": "Sales Call Script - May", "type": "Custom Script", "category": "Scripts & Phrases", "records": 86, "lastUpdated": "May 18, 2024 10:30 AM", "status": "Training" },
+    { "id": "6", "title": "Website Content Sync", "type": "Website Data", "category": "Product Information", "records": "—", "lastUpdated": "May 21, 2024 09:10 AM", "status": "Syncing" }
+  ],
+  "accuracy": 78
+}

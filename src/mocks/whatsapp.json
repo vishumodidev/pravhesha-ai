@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "name": "Rahul Sharma",
+    "phone": "+91 98765 43210",
+    "location": "Bangalore, India",
+    "avatar": "",
+    "lastMessage": "Hi, I'm interested in the Enterprise plan.",
+    "time": "10:30 AM",
+    "unreadCount": 2,
+    "email": "rahul.sharma@email.com",
+    "clientSince": "Apr 12, 2024",
+    "status": "Open",
+    "aiScore": 85,
+    "aiInsights": {
+      "intent": "Interested in Enterprise Plan",
+      "suggestedReply": "Share calendar demo booking link"
+    },
+    "messages": [
+      { "id": "1", "sender": "customer", "text": "Hi, I saw your ad on LinkedIn and I'm interested in the Enterprise plan.", "time": "10:21 AM" },
+      { "id": "2", "sender": "agent", "text": "Hi Rahul! 👋 Thanks for reaching out. Our Enterprise plan includes advanced analytics, priority support and custom integrations.", "time": "10:22 AM", "status": "read" },
+      { "id": "3", "sender": "customer", "text": "That sounds good. Can you share the pricing and implementation timeline?", "time": "10:24 AM" },
+      { "id": "4", "sender": "agent", "text": "Here is the pricing and plan details.", "time": "10:25 AM", "fileName": "Enterprise_Plan_Details.pdf", "fileSize": "1.2 MB", "status": "read" },
+      { "id": "5", "sender": "customer", "text": "Thanks for the info! Please share a demo link so we can discuss with our team.", "time": "10:30 AM" }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Priya Mehta",
+    "phone": "+91 91234 56789",
+    "location": "Mumbai, India",
+    "avatar": "",
+    "lastMessage": "Thanks for the info! Please share pricing.",
+    "time": "10:15 AM",
+    "unreadCount": 1,
+    "email": "priya@mehta.com",
+    "clientSince": "Mar 15, 2024",
+    "status": "Open",
+    "aiScore": 78,
+    "aiInsights": {
+      "intent": "Requesting WhatsApp pricing model",
+      "suggestedReply": "Send Standard pricing sheets link"
+    },
+    "messages": [
+      { "id": "1", "sender": "customer", "text": "Hello, looking for details on WhatsApp broadcasting rules.", "time": "10:10 AM" },
+      { "id": "2", "sender": "agent", "text": "Broadcasting allows up to 100k messages daily under standard templates.", "time": "10:12 AM", "status": "read" },
+      { "id": "3", "sender": "customer", "text": "Thanks for the info! Please share pricing.", "time": "10:15 AM" }
+    ]
+  }
+]

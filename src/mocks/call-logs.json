@@ -1,0 +1,69 @@
+[
+  {
+    "id": "1",
+    "phone": "+91 98765 43210",
+    "location": "Bangalore, India",
+    "contactName": "Rahul Sharma",
+    "company": "TechNova Solutions",
+    "type": "Inbound",
+    "status": "Answered",
+    "duration": "06:32",
+    "agentName": "Priya Mehta",
+    "agentAvatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=150",
+    "dateTime": "May 21, 2024 10:30 AM",
+    "recordingLength": "06:32",
+    "source": "Website",
+    "aiSummary": "Rahul called to discuss the pricing for the Enterprise plan. He is interested in a custom API integration and requested a demo for his development team. Follow-up scheduled.",
+    "keyPoints": [
+      "Interested in Enterprise plan custom quote.",
+      "Requested technical API integration walkthrough.",
+      "Needs live demo for a team of 8-10 members.",
+      "Budget negotiations deferred to next follow-up."
+    ],
+    "nextAction": "Schedule Demo Call"
+  },
+  {
+    "id": "2",
+    "phone": "+91 91234 56789",
+    "location": "Mumbai, India",
+    "contactName": "Amit Verma",
+    "company": "Innovix Tech",
+    "type": "Outbound",
+    "status": "Answered",
+    "duration": "04:18",
+    "agentName": "Vikram Patel",
+    "agentAvatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150",
+    "dateTime": "May 21, 2024 09:15 AM",
+    "recordingLength": "04:18",
+    "source": "Lead Form",
+    "aiSummary": "Outbound check-in with Amit Verma regarding trial feedback. He is satisfied with the AI Leads module but wants to verify WhatsApp pricing tiers before committing.",
+    "keyPoints": [
+      "Positive trial feedback on Lead scoring.",
+      "Inquired about WhatsApp broadcast limits.",
+      "Requested standard contracts and SLAs."
+    ],
+    "nextAction": "Email pricing sheet"
+  },
+  {
+    "id": "3",
+    "phone": "+91 90012 34567",
+    "location": "Pune, India",
+    "contactName": "Sneha Iyer",
+    "company": "BrightCo",
+    "type": "Inbound",
+    "status": "Missed",
+    "duration": "—",
+    "agentName": "Anjali Singh",
+    "agentAvatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=150",
+    "dateTime": "May 21, 2024 08:45 AM",
+    "recordingLength": "—",
+    "source": "Google Ads",
+    "aiSummary": "Missed inbound call. Customer had signed up for trial 20 minutes prior. Likely requires onboarding support.",
+    "keyPoints": [
+      "Missed inbound call.",
+      "Customer had signed up for trial 20 minutes prior.",
+      "Likely requires onboarding support."
+    ],
+    "nextAction": "Schedule Demo Call"
+  }
+]

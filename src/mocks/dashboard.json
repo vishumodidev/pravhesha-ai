@@ -1,0 +1,73 @@
+{
+  "metrics": {
+    "totalLeads": { "value": "1,245", "change": "18.6%", "isPositive": true, "sparkline": [40, 55, 45, 70, 65, 80, 95] },
+    "visitors": { "value": "5,432", "change": "24.5%", "isPositive": true, "sparkline": [30, 42, 60, 52, 70, 85, 98] },
+    "aiQualifiedLeads": { "value": "312", "change": "22.4%", "isPositive": true, "sparkline": [20, 28, 35, 42, 39, 58, 64] },
+    "conversions": { "value": "89", "change": "15.3%", "isPositive": true, "sparkline": [12, 18, 15, 24, 21, 28, 33] },
+    "revenue": { "value": "₹18.4L", "change": "20.8%", "isPositive": true, "sparkline": [30, 45, 40, 65, 75, 90, 110] },
+    "customers": { "value": "132", "change": "17.2%", "isPositive": true, "sparkline": [20, 25, 22, 34, 30, 39, 44] }
+  },
+  "aiInsights": [
+    { "type": "info", "text": "12 leads were contacted today by WhatsApp automation." },
+    { "type": "danger", "text": "4 hot leads detected displaying high qualification signals." },
+    { "type": "warning", "text": "3 follow-ups are overdue. Immediate action suggested." },
+    { "type": "success", "text": "2 demos scheduled today. Product catalog is updated." }
+  ],
+  "totalOpportunity": "₹2.4 Lakhs",
+  "leadCallActivity": [
+    { "name": "May 15", "Leads": 60, "Calls": 25 },
+    { "name": "May 16", "Leads": 90, "Calls": 70 },
+    { "name": "May 17", "Leads": 80, "Calls": 50 },
+    { "name": "May 18", "Leads": 110, "Calls": 95 },
+    { "name": "May 19", "Leads": 130, "Calls": 75 },
+    { "name": "May 20", "Leads": 115, "Calls": 60 },
+    { "name": "May 21", "Leads": 154, "Calls": 120 }
+  ],
+  "funnel": [
+    { "stage": "Visitors", "value": 10000, "percentage": 100 },
+    { "stage": "Leads Captured", "value": 3200, "percentage": 70 },
+    { "stage": "AI Qualified Leads", "value": 1450, "percentage": 45 },
+    { "stage": "Demo Scheduled", "value": 420, "percentage": 25 },
+    { "stage": "Converted Customers", "value": 132, "percentage": 13 }
+  ],
+  "conversionRate": "2.64%",
+  "customersOverview": {
+    "total": { "value": 132, "change": "+17.2%", "isPositive": true },
+    "active": { "value": 98, "change": "+14.8%", "isPositive": true },
+    "newMonth": { "value": 18, "change": "+20.0%", "isPositive": true },
+    "churnRisk": { "value": 6, "change": "+4.2%", "isPositive": false }
+  },
+  "recentCustomers": [
+    { "name": "Rahul Sharma", "company": "TechNova Pvt Ltd", "plan": "Premium", "joined": "May 20, 2024", "status": "Active" },
+    { "name": "Priya Mehta", "company": "BrightByte Solutions", "plan": "Standard", "joined": "May 18, 2024", "status": "Active" },
+    { "name": "Amit Verma", "company": "Verma Enterprises", "plan": "Premium", "joined": "May 17, 2024", "status": "Active" },
+    { "name": "Sneha Iyer", "company": "CloudScale Tech", "plan": "Standard", "joined": "May 16, 2024", "status": "Active" }
+  ],
+  "ticketsOverview": {
+    "total": 54,
+    "open": 12,
+    "inProgress": 8,
+    "resolved": 34,
+    "breached": 2,
+    "priorityDistribution": [
+      { "name": "High", "value": 12, "color": "#f43f5e" },
+      { "name": "Medium", "value": 20, "color": "#f59e0b" },
+      { "name": "Low", "value": 22, "color": "#10b981" }
+    ],
+    "recentTickets": [
+      { "id": "TKT-1256", "title": "Login issue", "priority": "High" },
+      { "id": "TKT-1255", "title": "Data sync error", "priority": "Medium" },
+      { "id": "TKT-1254", "title": "Feature request", "priority": "Low" }
+    ]
+  },
+  "recentActivities": [
+    { "id": "act-1", "userInitials": "MS", "userName": "Manish Singh", "action": "New lead registered from Instagram Ad", "detail": "Silver Plan Interest", "category": "leads", "time": "2 mins ago" },
+    { "id": "act-2", "userInitials": "RS", "userName": "Rahul Sharma", "action": "WhatsApp automation call completed", "detail": "AI flagged intent: Hot Lead", "category": "calls", "time": "1 hour ago" }
+  ],
+  "miniMetrics": {
+    "hotLeads": { "value": 24, "change": "+26%" },
+    "followUps": { "value": 8, "change": "+14%" },
+    "demos": { "value": 3, "change": "+20%" },
+    "pendingTasks": { "value": 12, "change": "+10%" }
+  }
+}
