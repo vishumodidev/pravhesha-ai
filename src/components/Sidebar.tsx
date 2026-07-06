@@ -20,13 +20,15 @@ import {
   X
 } from 'lucide-react';
 import { useClientStore } from '../app/useClientStore';
+import { useSidebarStore } from '../store/sidebar.store';
 
 interface SidebarProps {
   openCopilot: () => void;
 }
 
 export default function Sidebar({ openCopilot }: SidebarProps) {
-  const { logout, sidebarOpen, setSidebarOpen } = useClientStore();
+  const { logout } = useClientStore();
+  const { sidebarOpen, setSidebarOpen } = useSidebarStore();
   const navigate = useNavigate();
 
   const menuItems = [

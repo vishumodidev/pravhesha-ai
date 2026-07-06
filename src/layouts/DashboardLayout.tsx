@@ -3,16 +3,26 @@ import { Outlet } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 import AICopilot from '../components/AICopilot';
-import { useClientStore } from '../app/useClientStore';
+import { useSidebarStore } from '../store/sidebar.store';
+import { useAIStore } from '../store/ai.store';
 
 export default function DashboardLayout() {
-  const { copilotOpen, setCopilotOpen, setSidebarOpen } = useClientStore();
+  const { setSidebarOpen } = useSidebarStore();
+  const { copilotOpen, setCopilotOpen } = useAIStore();
   const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
-    if (window.innerWidth < 1024) {
-      setSidebarOpen(false);
-    }
+    const handleResize = () => {
+      if (window.innerWidth < 1024) {
+        setSidebarOpen(false);
+      } else {
+        setSidebarOpen(true);
+      }
+    };
+
+    handleResize(); // Run on mount
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, [setSidebarOpen]);
 
   const openCopilot = () => setCopilotOpen(true);

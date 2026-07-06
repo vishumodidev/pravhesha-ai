@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Search, Phone, MessageSquare, Bell, HelpCircle, Command, Sparkles, Menu } from 'lucide-react';
-import { useClientStore } from '../app/useClientStore';
+import { useSidebarStore } from '../store/sidebar.store';
 
 interface HeaderProps {
   searchQuery: string;
@@ -10,7 +10,7 @@ interface HeaderProps {
 
 export default function Header({ searchQuery, setSearchQuery, openCopilot }: HeaderProps) {
   const [showNotifications, setShowNotifications] = useState(false);
-  const { setSidebarOpen } = useClientStore();
+  const { setSidebarOpen } = useSidebarStore();
 
   return (
     <header className="h-16 border-b border-slate-200 bg-white/80 backdrop-blur-md flex items-center justify-between px-4 sm:px-6 sticky top-0 z-30 select-none">
