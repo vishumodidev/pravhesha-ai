@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
@@ -6,8 +6,14 @@ import AICopilot from '../components/AICopilot';
 import { useClientStore } from '../app/useClientStore';
 
 export default function DashboardLayout() {
-  const { copilotOpen, setCopilotOpen } = useClientStore();
+  const { copilotOpen, setCopilotOpen, setSidebarOpen } = useClientStore();
   const [searchQuery, setSearchQuery] = useState('');
+
+  useEffect(() => {
+    if (window.innerWidth < 1024) {
+      setSidebarOpen(false);
+    }
+  }, [setSidebarOpen]);
 
   const openCopilot = () => setCopilotOpen(true);
   const closeCopilot = () => setCopilotOpen(false);
@@ -27,7 +33,7 @@ export default function DashboardLayout() {
         />
 
         {/* Dynamic Viewport */}
-        <main className="flex-1 p-6 overflow-y-auto">
+        <main className="flex-1 p-4 sm:p-6 overflow-y-auto">
           <Outlet context={{ searchQuery }} />
         </main>
       </div>
