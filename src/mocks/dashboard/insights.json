@@ -1,0 +1,6 @@
+[
+  { "type": "info", "text": "12 leads were contacted today by WhatsApp automation." },
+  { "type": "danger", "text": "4 hot leads detected displaying high qualification signals." },
+  { "type": "warning", "text": "3 follow-ups are overdue. Immediate action suggested." },
+  { "type": "success", "text": "2 demos scheduled today. Product catalog is updated." }
+]

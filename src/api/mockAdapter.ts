@@ -1,7 +1,10 @@
 import api from './axios';
 
 // Import initial mock data
-import dashboardData from '../mocks/dashboard.json';
+import dashboardData from '../mocks/dashboard/dashboard.json';
+import revenueData from '../mocks/dashboard/revenue.json';
+import visitorsData from '../mocks/dashboard/visitors.json';
+import insightsData from '../mocks/dashboard/insights.json';
 import customersData from '../mocks/customers.json';
 import leadsData from '../mocks/leads.json';
 import ticketsData from '../mocks/tickets.json';
@@ -134,9 +137,12 @@ export const setupMockAdapter = () => {
         ...dashboardData,
         metrics: {
           ...dashboardData.metrics,
+          revenue: revenueData,
+          visitors: visitorsData,
           totalLeads: { ...dashboardData.metrics.totalLeads, value: db.leads.length.toLocaleString() },
           customers: { ...dashboardData.metrics.customers, value: db.customers.length.toLocaleString() },
         },
+        aiInsights: insightsData,
         recentCustomers: db.customers.slice(0, 4).map(c => ({
           name: c.name,
           company: c.company,
