@@ -1,0 +1,182 @@
+[
+  {
+    "id": "NTE-001",
+    "leadId": "1",
+    "title": "Budget Discussion",
+    "content": "Customer requested a discount on the Enterprise plan. Budget around ₹2,00,000.",
+    "createdBy": "Priya Mehta",
+    "createdAt": "2026-07-07T12:00:00Z",
+    "updatedAt": "2026-07-07T12:00:00Z"
+  },
+  {
+    "id": "NTE-002",
+    "leadId": "1",
+    "title": "Follow-up Details",
+    "content": "Call after the weekend. Customer requested a callback after 6 PM.",
+    "createdBy": "Priya Mehta",
+    "createdAt": "2026-07-07T15:00:00Z",
+    "updatedAt": "2026-07-07T15:00:00Z"
+  },
+  {
+    "id": "NTE-003",
+    "leadId": "1",
+    "title": "Decision Maker Info",
+    "content": "Decision maker is the CEO. Rahul is evaluating the technical parameters first.",
+    "createdBy": "Priya Mehta",
+    "createdAt": "2026-07-07T16:00:00Z",
+    "updatedAt": "2026-07-07T16:00:00Z"
+  },
+  {
+    "id": "NTE-004",
+    "leadId": "1",
+    "title": "Plan Preference",
+    "content": "Highly interested in the Premium Plan, but needs additional custom API integrations for WhatsApp automation.",
+    "createdBy": "Priya Mehta",
+    "createdAt": "2026-07-07T17:30:00Z",
+    "updatedAt": "2026-07-07T17:30:00Z"
+  },
+  {
+    "id": "NTE-005",
+    "leadId": "2",
+    "title": "Initial Call Notes",
+    "content": "Left a voicemail. Will retry tomorrow morning.",
+    "createdBy": "Anjali Singh",
+    "createdAt": "2026-07-07T10:20:00Z",
+    "updatedAt": "2026-07-07T10:20:00Z"
+  },
+  {
+    "id": "NTE-006",
+    "leadId": "3",
+    "title": "LinkedIn Inbound Context",
+    "content": "Downloaded cloud scale datasheet. Focus area: scalability and cloud databases.",
+    "createdBy": "Priya Mehta",
+    "createdAt": "2026-07-07T08:50:00Z",
+    "updatedAt": "2026-07-07T08:50:00Z"
+  },
+  {
+    "id": "NTE-007",
+    "leadId": "4",
+    "title": "WhatsApp Query",
+    "content": "Asked about multi-agent support for their support center. Budget is tight.",
+    "createdBy": "Rahul Desai",
+    "createdAt": "2026-07-06T19:30:00Z",
+    "updatedAt": "2026-07-06T19:30:00Z"
+  },
+  {
+    "id": "NTE-008",
+    "leadId": "5",
+    "title": "Video Demo Feedback",
+    "content": "Sent YouTube demo link. Emily replied saying she loved the interface design.",
+    "createdBy": "Anjali Singh",
+    "createdAt": "2026-07-06T17:40:00Z",
+    "updatedAt": "2026-07-06T17:40:00Z"
+  },
+  {
+    "id": "NTE-009",
+    "leadId": "6",
+    "title": "Closing Details",
+    "content": "Contract signed and registered. Ready to onboard next week.",
+    "createdBy": "Priya Mehta",
+    "createdAt": "2026-07-06T14:15:00Z",
+    "updatedAt": "2026-07-06T14:15:00Z"
+  },
+  {
+    "id": "NTE-010",
+    "leadId": "7",
+    "title": "Lost Deal Reason",
+    "content": "Sticking with competitor. Competitor offered a 3-year price lock. We cannot match that currently.",
+    "createdBy": "Rahul Desai",
+    "createdAt": "2026-07-06T16:05:00Z",
+    "updatedAt": "2026-07-06T16:05:00Z"
+  },
+  {
+    "id": "NTE-011",
+    "leadId": "8",
+    "title": "Google Ads Intent",
+    "content": "Searched for 'AI CRM integration'. Small business profile.",
+    "createdBy": "Priya Mehta",
+    "createdAt": "2026-07-05T16:40:00Z",
+    "updatedAt": "2026-07-05T16:40:00Z"
+  },
+  {
+    "id": "NTE-012",
+    "leadId": "10",
+    "title": "Technical Requirements",
+    "content": "Requires integration with Slack and Jira. Sent docs links.",
+    "createdBy": "Rahul Desai",
+    "createdAt": "2026-07-05T11:00:00Z",
+    "updatedAt": "2026-07-05T11:00:00Z"
+  },
+  {
+    "id": "NTE-013",
+    "leadId": "12",
+    "title": "Online Checkout Info",
+    "content": "Self-serve customer. Onboarding questionnaire completed automatically.",
+    "createdBy": "System",
+    "createdAt": "2026-07-04T20:15:00Z",
+    "updatedAt": "2026-07-04T20:15:00Z"
+  },
+  {
+    "id": "NTE-014",
+    "leadId": "15",
+    "title": "Lead Qualification Details",
+    "content": "BANT analysis: Budget ₹5,00,000, Authority yes, Need yes, Timeline Q3.",
+    "createdBy": "Anjali Singh",
+    "createdAt": "2026-07-04T10:45:00Z",
+    "updatedAt": "2026-07-04T10:45:00Z"
+  },
+  {
+    "id": "NTE-015",
+    "leadId": "19",
+    "title": "Won Notes",
+    "content": "Onboarded. Setup scheduled for tomorrow at 11 AM.",
+    "createdBy": "Priya Mehta",
+    "createdAt": "2026-07-02T16:50:00Z",
+    "updatedAt": "2026-07-02T16:50:00Z"
+  },
+  {
+    "id": "NTE-016",
+    "leadId": "20",
+    "title": "Support Call Info",
+    "content": "Inquired about call logs and dialer integrations. Pointed to caller plugin specs.",
+    "createdBy": "Rahul Desai",
+    "createdAt": "2026-07-02T11:30:00Z",
+    "updatedAt": "2026-07-02T11:30:00Z"
+  },
+  {
+    "id": "NTE-017",
+    "leadId": "21",
+    "title": "Enterprise Evaluation",
+    "content": "Undergoing extensive legal compliance check. Needs ISO certificate copies.",
+    "createdBy": "Priya Mehta",
+    "createdAt": "2026-07-02T09:45:00Z",
+    "updatedAt": "2026-07-02T09:45:00Z"
+  },
+  {
+    "id": "NTE-018",
+    "leadId": "22",
+    "title": "Won Notes - Setup",
+    "content": "Ready to launch workspace. Customer support is on standby.",
+    "createdBy": "Anjali Singh",
+    "createdAt": "2026-07-01T14:30:00Z",
+    "updatedAt": "2026-07-01T14:30:00Z"
+  },
+  {
+    "id": "NTE-019",
+    "leadId": "24",
+    "title": "Proposal Review Feedback",
+    "content": "Lionel liked the volume pricing discounts. Contract drafting in progress.",
+    "createdBy": "Priya Mehta",
+    "createdAt": "2026-07-01T09:30:00Z",
+    "updatedAt": "2026-07-01T09:30:00Z"
+  },
+  {
+    "id": "NTE-020",
+    "leadId": "25",
+    "title": "Lost Reasons",
+    "content": "Too custom. SpaceX requires a fully custom offline on-premise installation, which we do not offer.",
+    "createdBy": "Rahul Desai",
+    "createdAt": "2026-06-30T17:00:00Z",
+    "updatedAt": "2026-06-30T17:00:00Z"
+  }
+]

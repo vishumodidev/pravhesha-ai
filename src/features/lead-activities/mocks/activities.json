@@ -1,0 +1,272 @@
+[
+  {
+    "id": "ACT-001",
+    "leadId": "1",
+    "activityType": "Lead Created",
+    "title": "Lead Created",
+    "description": "Lead was created in the system via Website integration.",
+    "performedBy": "System",
+    "performedAt": "2026-07-01T09:00:00Z"
+  },
+  {
+    "id": "ACT-002",
+    "leadId": "1",
+    "activityType": "Call Made",
+    "title": "Outbound Discovery Call",
+    "description": "Spoke with Rahul about the Enterprise pricing plan. He showed strong interest.",
+    "performedBy": "Priya Mehta",
+    "performedAt": "2026-07-02T10:30:00Z"
+  },
+  {
+    "id": "ACT-003",
+    "leadId": "1",
+    "activityType": "Email Sent",
+    "title": "Sent Enterprise Proposal PDF",
+    "description": "Emailed the customized pricing proposal and SLA documentation.",
+    "performedBy": "Priya Mehta",
+    "performedAt": "2026-07-03T11:15:00Z"
+  },
+  {
+    "id": "ACT-004",
+    "leadId": "1",
+    "activityType": "WhatsApp Sent",
+    "title": "WhatsApp Message Sent",
+    "description": "Shared link to scheduling calendar for proposal review meeting.",
+    "performedBy": "Priya Mehta",
+    "performedAt": "2026-07-04T12:00:00Z"
+  },
+  {
+    "id": "ACT-005",
+    "leadId": "1",
+    "activityType": "Meeting Scheduled",
+    "title": "Proposal Review Meeting",
+    "description": "Meeting scheduled for July 9 at 3:00 PM via Zoom.",
+    "performedBy": "Priya Mehta",
+    "performedAt": "2026-07-05T14:00:00Z"
+  },
+  {
+    "id": "ACT-006",
+    "leadId": "1",
+    "activityType": "Status Changed",
+    "title": "Status Updated to Qualified",
+    "description": "Lead status moved from Contacted to Qualified based on budget fit.",
+    "performedBy": "Priya Mehta",
+    "performedAt": "2026-07-07T10:30:00Z"
+  },
+  {
+    "id": "ACT-007",
+    "leadId": "1",
+    "activityType": "Note Added",
+    "title": "Note: Technical Stack Details",
+    "description": "Rahul mentioned they are currently migrating from legacy Salesforce systems.",
+    "performedBy": "Priya Mehta",
+    "performedAt": "2026-07-07T11:00:00Z"
+  },
+  {
+    "id": "ACT-008",
+    "leadId": "2",
+    "activityType": "Lead Created",
+    "title": "Lead Created",
+    "description": "Lead generated via Facebook ad form.",
+    "performedBy": "System",
+    "performedAt": "2026-07-07T09:15:00Z"
+  },
+  {
+    "id": "ACT-009",
+    "leadId": "2",
+    "activityType": "Call Made",
+    "title": "First Outbound Call",
+    "description": "Called but lead was busy. Left voicemail.",
+    "performedBy": "Anjali Singh",
+    "performedAt": "2026-07-07T10:15:00Z"
+  },
+  {
+    "id": "ACT-010",
+    "leadId": "3",
+    "activityType": "Lead Created",
+    "title": "Lead Created",
+    "description": "LinkedIn lead sync completed.",
+    "performedBy": "System",
+    "performedAt": "2026-07-07T08:45:00Z"
+  },
+  {
+    "id": "ACT-011",
+    "leadId": "4",
+    "activityType": "Lead Created",
+    "title": "Lead Created",
+    "description": "WhatsApp direct inbound lead recorded.",
+    "performedBy": "System",
+    "performedAt": "2026-07-06T19:20:00Z"
+  },
+  {
+    "id": "ACT-012",
+    "leadId": "5",
+    "activityType": "Lead Created",
+    "title": "Lead Created",
+    "description": "Instagram DM swipe up lead.",
+    "performedBy": "System",
+    "performedAt": "2026-07-06T15:30:00Z"
+  },
+  {
+    "id": "ACT-013",
+    "leadId": "5",
+    "activityType": "Call Made",
+    "title": "Discovery Call",
+    "description": "Product demo requested. Set up webinar invitation.",
+    "performedBy": "Anjali Singh",
+    "performedAt": "2026-07-06T17:00:00Z"
+  },
+  {
+    "id": "ACT-014",
+    "leadId": "5",
+    "activityType": "Email Sent",
+    "title": "Demo Link Sent",
+    "description": "Sent email containing pre-recorded video demo.",
+    "performedBy": "Anjali Singh",
+    "performedAt": "2026-07-06T17:30:00Z"
+  },
+  {
+    "id": "ACT-015",
+    "leadId": "6",
+    "activityType": "Lead Created",
+    "title": "Lead Created",
+    "description": "Website contact form completed.",
+    "performedBy": "System",
+    "performedAt": "2026-07-06T11:45:00Z"
+  },
+  {
+    "id": "ACT-016",
+    "leadId": "6",
+    "activityType": "Call Made",
+    "title": "Introduction Call",
+    "description": "Discussed details. Client ready to purchase.",
+    "performedBy": "Priya Mehta",
+    "performedAt": "2026-07-06T12:30:00Z"
+  },
+  {
+    "id": "ACT-017",
+    "leadId": "6",
+    "activityType": "Status Changed",
+    "title": "Status Updated to Won",
+    "description": "Contract signed and initial payment cleared.",
+    "performedBy": "Priya Mehta",
+    "performedAt": "2026-07-06T14:00:00Z"
+  },
+  {
+    "id": "ACT-018",
+    "leadId": "7",
+    "activityType": "Lead Created",
+    "title": "Lead Created",
+    "description": "LinkedIn outreach response.",
+    "performedBy": "System",
+    "performedAt": "2026-07-06T09:05:00Z"
+  },
+  {
+    "id": "ACT-019",
+    "leadId": "7",
+    "activityType": "Status Changed",
+    "title": "Status Updated to Lost",
+    "description": "Client decided to stick with current vendor due to contract duration.",
+    "performedBy": "Rahul Desai",
+    "performedAt": "2026-07-06T16:00:00Z"
+  },
+  {
+    "id": "ACT-020",
+    "leadId": "8",
+    "activityType": "Lead Created",
+    "title": "Lead Created",
+    "description": "Google Search Ad click lead.",
+    "performedBy": "System",
+    "performedAt": "2026-07-05T16:30:00Z"
+  },
+  {
+    "id": "ACT-021",
+    "leadId": "9",
+    "activityType": "Lead Created",
+    "title": "Lead Created",
+    "description": "Instagram DM discount code lead.",
+    "performedBy": "System",
+    "performedAt": "2026-07-05T14:10:00Z"
+  },
+  {
+    "id": "ACT-022",
+    "leadId": "10",
+    "activityType": "Lead Created",
+    "title": "Lead Created",
+    "description": "Website contact form lead.",
+    "performedBy": "System",
+    "performedAt": "2026-07-05T10:55:00Z"
+  },
+  {
+    "id": "ACT-023",
+    "leadId": "10",
+    "activityType": "Meeting Scheduled",
+    "title": "Technical Discovery",
+    "description": "Discussion scheduled with solution architect.",
+    "performedBy": "Rahul Desai",
+    "performedAt": "2026-07-05T15:00:00Z"
+  },
+  {
+    "id": "ACT-024",
+    "leadId": "10",
+    "activityType": "Status Changed",
+    "title": "Status Updated to Proposal Sent",
+    "description": "Emailed pricing sheets and custom proposal details.",
+    "performedBy": "Rahul Desai",
+    "performedAt": "2026-07-05T17:30:00Z"
+  },
+  {
+    "id": "ACT-025",
+    "leadId": "12",
+    "activityType": "Lead Created",
+    "title": "Lead Created",
+    "description": "Instagram lead form entry.",
+    "performedBy": "System",
+    "performedAt": "2026-07-04T19:40:00Z"
+  },
+  {
+    "id": "ACT-026",
+    "leadId": "12",
+    "activityType": "Status Changed",
+    "title": "Status Updated to Won",
+    "description": "Client paid online for Professional package.",
+    "performedBy": "Anjali Singh",
+    "performedAt": "2026-07-04T20:10:00Z"
+  },
+  {
+    "id": "ACT-027",
+    "leadId": "15",
+    "activityType": "Lead Created",
+    "title": "Lead Created",
+    "description": "Google Search Ad entry.",
+    "performedBy": "System",
+    "performedAt": "2026-07-04T09:18:00Z"
+  },
+  {
+    "id": "ACT-028",
+    "leadId": "15",
+    "activityType": "Call Made",
+    "title": "Discovery Call",
+    "description": "Qualified budget, timeline, and decision authority.",
+    "performedBy": "Anjali Singh",
+    "performedAt": "2026-07-04T10:30:00Z"
+  },
+  {
+    "id": "ACT-029",
+    "leadId": "19",
+    "activityType": "Lead Created",
+    "title": "Lead Created",
+    "description": "Instagram lead entry.",
+    "performedBy": "System",
+    "performedAt": "2026-07-02T15:30:00Z"
+  },
+  {
+    "id": "ACT-030",
+    "leadId": "19",
+    "activityType": "Status Changed",
+    "title": "Status Updated to Won",
+    "description": "Closed deal on phone call. Contract sent.",
+    "performedBy": "Priya Mehta",
+    "performedAt": "2026-07-02T16:45:00Z"
+  }
+]

@@ -1,20 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
-import { customersService } from '../services/customersService';
+import { customerService } from '../services/customer.service';
+import type { Customer } from '../types/Customer';
 
 export function useCustomers() {
-  const query = useQuery({
-    queryKey: ['customersData'],
-    queryFn: () => customersService.fetchCustomers(),
+  const { data, isLoading, error } = useQuery<Customer[]>({
+    queryKey: ['crmCustomersList'],
+    queryFn: () => customerService.getCustomers(),
   });
 
   return {
-    customers: query.data?.customers || [],
-    plansData: query.data?.plansData || [],
-    customerTrendData: query.data?.customerTrendData || [],
-    sourceData: query.data?.sourceData || [],
-    healthScoreDistribution: query.data?.healthScoreDistribution || [],
-    metrics: query.data?.metrics,
-    isLoading: query.isLoading,
-    error: query.error,
+    data: data || [],
+    loading: isLoading,
+    error,
   };
 }

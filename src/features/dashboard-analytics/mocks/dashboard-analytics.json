@@ -1,0 +1,48 @@
+{
+  "totalVisitors": 12500,
+  "totalSocialLeads": 20,
+  "totalLeads": 25,
+  "qualifiedLeads": 15,
+  "customers": 20,
+  "activePipeline": 6645000,
+  "wonDeals": 2,
+  "lostDeals": 1,
+  "monthlyRevenue": 2000000,
+  "pendingTasks": 15,
+  "overdueTasks": 2,
+  "leadGrowth": [
+    { "name": "Mon", "Leads": 12 },
+    { "name": "Tue", "Leads": 19 },
+    { "name": "Wed", "Leads": 15 },
+    { "name": "Thu", "Leads": 22 },
+    { "name": "Fri", "Leads": 30 },
+    { "name": "Sat", "Leads": 25 },
+    { "name": "Sun", "Leads": 28 }
+  ],
+  "revenueTrend": [
+    { "name": "Jan", "Revenue": 400000 },
+    { "name": "Feb", "Revenue": 700000 },
+    { "name": "Mar", "Revenue": 900000 },
+    { "name": "Apr", "Revenue": 1200000 },
+    { "name": "May", "Revenue": 1500000 },
+    { "name": "Jun", "Revenue": 1800000 },
+    { "name": "Jul", "Revenue": 2000000 }
+  ],
+  "pipelineDistribution": [
+    { "name": "New", "value": 5 },
+    { "name": "Qualified", "value": 8 },
+    { "name": "Contacted", "value": 4 },
+    { "name": "Meeting Scheduled", "value": 4 },
+    { "name": "Proposal Sent", "value": 3 },
+    { "name": "Negotiation", "value": 3 },
+    { "name": "Won", "value": 2 },
+    { "name": "Lost", "value": 1 }
+  ],
+  "leadSources": [
+    { "name": "Facebook", "value": 6 },
+    { "name": "Instagram", "value": 4 },
+    { "name": "LinkedIn", "value": 3 },
+    { "name": "Website", "value": 5 },
+    { "name": "Google Ads", "value": 2 }
+  ]
+}

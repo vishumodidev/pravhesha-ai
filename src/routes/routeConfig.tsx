@@ -8,7 +8,10 @@ import VisitorIntelligencePage from '../features/leads/pages/VisitorIntelligence
 import SocialLeadsPage from '../features/social-leads/pages/SocialLeadsPage';
 import AiTrainingPage from '../features/ai-agents/pages/AiTrainingPage';
 import LeadListPage from '../features/leads/pages/LeadListPage';
-import CustomersPage from '../features/customers/pages/CustomersPage';
+import LeadDetailsPage from '../features/leads/pages/LeadDetailsPage';
+import CustomerListPage from '../features/customers/pages/CustomerListPage';
+import CustomerDetailsPage from '../features/customers/pages/CustomerDetailsPage';
+import PipelineBoardPage from '../features/pipeline/pages/PipelineBoardPage';
 import TicketsPage from '../features/tickets/pages/TicketsPage';
 import CallLogsPage from '../features/calling/pages/CallLogsPage';
 import WhatsAppPage from '../features/whatsapp/pages/WhatsAppPage';
@@ -62,8 +65,20 @@ export const router = createBrowserRouter([
             element: <LeadListPage />,
           },
           {
+            path: 'leads/:leadId',
+            element: <LeadDetailsPage />,
+          },
+          {
             path: 'customers',
-            element: <CustomersPage />,
+            element: <CustomerListPage />,
+          },
+          {
+            path: 'customers/:customerId',
+            element: <CustomerDetailsPage />,
+          },
+          {
+            path: 'pipeline',
+            element: <PipelineBoardPage />,
           },
           {
             path: 'customer-tickets',

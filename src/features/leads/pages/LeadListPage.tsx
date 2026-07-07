@@ -1,9 +1,11 @@
 import { useState, useMemo } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useLeads } from '../hooks/useLeads';
 import type { Lead } from '../types/Lead';
 import { Search, Filter, RefreshCw, AlertCircle } from 'lucide-react';
 
 export default function LeadListPage() {
+  const navigate = useNavigate();
   const { data: leads, loading, error } = useLeads();
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedSource, setSelectedSource] = useState('All');
@@ -277,7 +279,11 @@ export default function LeadListPage() {
               </thead>
               <tbody className="divide-y divide-slate-100">
                 {filteredLeads.map((lead) => (
-                  <tr key={lead.id} className="hover:bg-slate-50/70 transition-colors group">
+                  <tr
+                    key={lead.id}
+                    onClick={() => navigate(`/dashboard/leads/${lead.id}`)}
+                    className="hover:bg-slate-50/70 transition-colors group cursor-pointer"
+                  >
                     <td className="py-4 px-6 font-mono text-xs font-semibold text-slate-500">
                       {lead.leadNumber}
                     </td>

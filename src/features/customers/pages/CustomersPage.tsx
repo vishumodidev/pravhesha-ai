@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Search, Filter, Columns, Calendar, Sparkles, ChevronDown } from 'lucide-react';
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, PieChart, Pie, Cell } from 'recharts';
-import { useCustomers } from '../hooks/useCustomers';
+import { useCustomersLegacy } from '../hooks/useCustomersLegacy';
 
 export default function CustomersPage() {
   const {
@@ -12,7 +12,7 @@ export default function CustomersPage() {
     healthScoreDistribution,
     metrics,
     isLoading,
-  } = useCustomers();
+  } = useCustomersLegacy();
 
   const [activeTab, setActiveTab] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');

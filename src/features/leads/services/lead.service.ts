@@ -8,4 +8,7 @@ export const leadService = {
   getLeadById: async (id: string): Promise<Lead> => {
     return await leadApi.getLeadById(id);
   },
+  getLeadDetails: async (id: string): Promise<Lead> => {
+    return await leadApi.getLeadById(id);
+  },
 };

@@ -17,6 +17,12 @@ import schedulingData from '../mocks/scheduling.json';
 import usersData from '../mocks/users.json';
 import socialLeadsData from '../features/social-leads/mocks/social-leads.json';
 import crmLeadsData from '../features/leads/mocks/leads.json';
+import leadActivitiesData from '../features/lead-activities/mocks/activities.json';
+import leadNotesData from '../features/lead-notes/mocks/notes.json';
+import crmTasksData from '../features/tasks/mocks/tasks.json';
+import crmCommunicationsData from '../features/communication/mocks/communications.json';
+import crmCustomersData from '../features/customers/mocks/customers.json';
+import crmPipelineData from '../features/pipeline/mocks/pipeline.json';
 
 // In-memory mock database
 const db = {
@@ -28,6 +34,12 @@ const db = {
   notifications: [...notificationsData],
   socialLeads: [...socialLeadsData],
   crmLeads: [...crmLeadsData],
+  leadActivities: [...leadActivitiesData],
+  leadNotes: [...leadNotesData],
+  crmTasks: [...crmTasksData],
+  crmCommunications: [...crmCommunicationsData],
+  crmCustomers: [...crmCustomersData],
+  crmPipeline: [...crmPipelineData],
   aiTraining: {
     trainingPerformanceData: [...aiTrainingData.performance],
     categoryData: [...aiTrainingData.categories],
@@ -274,6 +286,213 @@ export const setupMockAdapter = () => {
       }
       return {
         data: db.crmLeads,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    // 3.7 CRM Lead Activities Endpoints
+    if (url.includes('/crm-lead-activities')) {
+      const urlObj = new URL(url, 'http://localhost');
+      const leadId = urlObj.searchParams.get('leadId') || config.params?.leadId;
+      
+      const activityIdMatch = url.match(/\/crm-lead-activities\/([^/]+)$/);
+      if (activityIdMatch) {
+        const act = db.leadActivities.find(a => a.id === activityIdMatch[1]);
+        return {
+          data: act,
+          status: act ? 200 : 404,
+          statusText: act ? 'OK' : 'Not Found',
+          headers: {},
+          config,
+        };
+      }
+      
+      if (leadId) {
+        const filtered = db.leadActivities.filter(a => a.leadId === leadId);
+        return {
+          data: filtered,
+          status: 200,
+          statusText: 'OK',
+          headers: {},
+          config,
+        };
+      }
+      
+      return {
+        data: db.leadActivities,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    // 3.8 CRM Lead Notes Endpoints
+    if (url.includes('/crm-lead-notes')) {
+      const urlObj = new URL(url, 'http://localhost');
+      const leadId = urlObj.searchParams.get('leadId') || config.params?.leadId;
+      
+      const noteIdMatch = url.match(/\/crm-lead-notes\/([^/]+)$/);
+      if (noteIdMatch) {
+        const note = db.leadNotes.find(n => n.id === noteIdMatch[1]);
+        return {
+          data: note,
+          status: note ? 200 : 404,
+          statusText: note ? 'OK' : 'Not Found',
+          headers: {},
+          config,
+        };
+      }
+      
+      if (leadId) {
+        const filtered = db.leadNotes.filter(n => n.leadId === leadId);
+        return {
+          data: filtered,
+          status: 200,
+          statusText: 'OK',
+          headers: {},
+          config,
+        };
+      }
+      
+      return {
+        data: db.leadNotes,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    // 3.9 CRM Tasks Endpoints
+    if (url.includes('/crm-tasks')) {
+      const urlObj = new URL(url, 'http://localhost');
+      const leadId = urlObj.searchParams.get('leadId') || config.params?.leadId;
+      
+      const taskIdMatch = url.match(/\/crm-tasks\/([^/]+)$/);
+      if (taskIdMatch) {
+        const task = db.crmTasks.find(t => t.id === taskIdMatch[1]);
+        return {
+          data: task,
+          status: task ? 200 : 404,
+          statusText: task ? 'OK' : 'Not Found',
+          headers: {},
+          config,
+        };
+      }
+      
+      if (leadId) {
+        const filtered = db.crmTasks.filter(t => t.leadId === leadId);
+        return {
+          data: filtered,
+          status: 200,
+          statusText: 'OK',
+          headers: {},
+          config,
+        };
+      }
+      
+      return {
+        data: db.crmTasks,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    // 3.10 CRM Communications Endpoints
+    if (url.includes('/crm-communications')) {
+      const urlObj = new URL(url, 'http://localhost');
+      const leadId = urlObj.searchParams.get('leadId') || config.params?.leadId;
+      
+      const communicationIdMatch = url.match(/\/crm-communications\/([^/]+)$/);
+      if (communicationIdMatch) {
+        const com = db.crmCommunications.find(c => c.id === communicationIdMatch[1]);
+        return {
+          data: com,
+          status: com ? 200 : 404,
+          statusText: com ? 'OK' : 'Not Found',
+          headers: {},
+          config,
+        };
+      }
+      
+      if (leadId) {
+        const filtered = db.crmCommunications.filter(c => c.leadId === leadId);
+        return {
+          data: filtered,
+          status: 200,
+          statusText: 'OK',
+          headers: {},
+          config,
+        };
+      }
+      
+      return {
+        data: db.crmCommunications,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    // 3.11 CRM Customers Endpoints
+    if (url.includes('/crm-customers')) {
+      const customerIdMatch = url.match(/\/crm-customers\/([^/]+)$/);
+      if (customerIdMatch) {
+        const cust = db.crmCustomers.find(c => c.id === customerIdMatch[1]);
+        return {
+          data: cust,
+          status: cust ? 200 : 404,
+          statusText: cust ? 'OK' : 'Not Found',
+          headers: {},
+          config,
+        };
+      }
+      
+      return {
+        data: db.crmCustomers,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    // 3.12 CRM Pipeline Endpoints
+    if (url.includes('/crm-pipeline')) {
+      const opportunityIdMatch = url.match(/\/crm-pipeline\/([^/]+)$/);
+      if (opportunityIdMatch) {
+        const opp = db.crmPipeline.find(o => o.id === opportunityIdMatch[1]);
+        return {
+          data: opp,
+          status: opp ? 200 : 404,
+          statusText: opp ? 'OK' : 'Not Found',
+          headers: {},
+          config,
+        };
+      }
+
+      // Filter by stage query param if available
+      const stageParam = config.params?.stage;
+      if (stageParam) {
+        const filtered = db.crmPipeline.filter(o => o.stage === stageParam);
+        return {
+          data: filtered,
+          status: 200,
+          statusText: 'OK',
+          headers: {},
+          config,
+        };
+      }
+      
+      return {
+        data: db.crmPipeline,
         status: 200,
         statusText: 'OK',
         headers: {},
