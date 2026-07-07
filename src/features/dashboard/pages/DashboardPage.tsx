@@ -14,10 +14,10 @@ import RecentActivities from '../components/RecentActivities';
 import MiniMetrics from '../components/MiniMetrics';
 
 export default function DashboardPage() {
-  const { data: dashboard, isLoading, error } = useDashboard();
+  const { data, loading } = useDashboard();
   const navigate = useNavigate();
 
-  if (isLoading) {
+  if (loading) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[60vh] space-y-4">
         <div className="w-12 h-12 border-4 border-indigo-200 border-t-indigo-650 rounded-full animate-spin" />
@@ -28,11 +28,11 @@ export default function DashboardPage() {
     );
   }
 
-  if (error || !dashboard) {
+  if (!data) {
     return (
       <div className="bg-rose-50 border border-rose-200 rounded-2xl p-6 text-center max-w-xl mx-auto my-12 space-y-4">
         <h3 className="text-base font-bold text-rose-700">Failed to load dashboard</h3>
-        <p className="text-xs text-rose-600">{(error as Error)?.message || 'An error occurred while calling the API'}</p>
+        <p className="text-xs text-rose-600">An error occurred while calling the API</p>
         <button
           onClick={() => window.location.reload()}
           className="px-4 py-2 bg-rose-650 text-white rounded-xl text-xs font-bold shadow-md hover:bg-rose-700"
@@ -72,23 +72,23 @@ export default function DashboardPage() {
       </div>
 
       {/* Metric Cards Row */}
-      <DashboardCards metrics={dashboard.metrics} />
+      <DashboardCards metrics={data.metrics} />
 
       {/* Sales Insights, Activity Chart, and Funnel Row */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         <div className="lg:col-span-3">
           <AIInsightCard
-            insights={dashboard.aiInsights}
-            totalOpportunity={dashboard.totalOpportunity}
+            insights={data.aiInsights}
+            totalOpportunity={data.totalOpportunity}
           />
         </div>
         <div className="lg:col-span-6">
-          <LeadChart data={dashboard.leadCallActivity} />
+          <LeadChart data={data.leadCallActivity} />
         </div>
         <div className="lg:col-span-3">
           <ConversionFunnel
-            funnel={dashboard.funnel}
-            conversionRate={dashboard.conversionRate}
+            funnel={data.funnel}
+            conversionRate={data.conversionRate}
           />
         </div>
       </div>
@@ -97,19 +97,19 @@ export default function DashboardPage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         <div className="lg:col-span-3">
           <CustomersOverview
-            overview={dashboard.customersOverview}
+            overview={data.customersOverview}
             onViewAllClick={() => navigate('/customers')}
           />
         </div>
         <div className="lg:col-span-5">
           <RecentCustomers
-            customers={dashboard.recentCustomers}
+            customers={data.recentCustomers}
             onViewAllClick={() => navigate('/customers')}
           />
         </div>
         <div className="lg:col-span-4">
           <RecentTickets
-            overview={dashboard.ticketsOverview}
+            overview={data.ticketsOverview}
             onViewAllClick={() => navigate('/customer-tickets')}
           />
         </div>
@@ -119,7 +119,7 @@ export default function DashboardPage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         <div className="lg:col-span-8">
           <AITrainingSection
-            accuracy={dashboard.ticketsOverview.priorityDistribution[0] ? dashboard.aiTrainingAccuracy : 72}
+            accuracy={data.ticketsOverview.priorityDistribution[0] ? data.aiTrainingAccuracy : 72}
             totalDocs={48}
             questionsTrained={1248}
             lastTrained="May 20, 2024"
@@ -128,7 +128,7 @@ export default function DashboardPage() {
         </div>
         <div className="lg:col-span-4">
           <RecentTrainingActivity
-            activities={dashboard.ticketsOverview.recentTickets.map((t, idx) => ({
+            activities={data.ticketsOverview.recentTickets.map((t, idx) => ({
               id: t.id,
               title: idx === 0 ? 'Product Catalog.pdf' : idx === 1 ? 'SOP - Sales Process.pdf' : 'FAQs - Services.pdf',
               lastUpdated: 'May 20, 2024',
@@ -142,10 +142,10 @@ export default function DashboardPage() {
       {/* Bottom Activities and Stats Row */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         <div className="lg:col-span-8">
-          <RecentActivities activities={dashboard.recentActivities} />
+          <RecentActivities activities={data.recentActivities} />
         </div>
         <div className="lg:col-span-4">
-          <MiniMetrics metrics={dashboard.miniMetrics} />
+          <MiniMetrics metrics={data.miniMetrics} />
         </div>
       </div>
     </div>

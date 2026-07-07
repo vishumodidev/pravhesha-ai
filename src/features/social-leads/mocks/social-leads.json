@@ -1,0 +1,202 @@
+[
+  {
+    "id": "SL-001",
+    "name": "Arjun Patel",
+    "email": "arjun.patel@gmail.com",
+    "phone": "+91 98765 43210",
+    "source": "Facebook",
+    "campaign": "FB - Lead Gen Summer Sale",
+    "status": "New",
+    "createdAt": "2026-07-07T09:45:00Z"
+  },
+  {
+    "id": "SL-002",
+    "name": "Sarah Jenkins",
+    "email": "sarah.j@outlook.com",
+    "phone": "+1 (555) 019-2834",
+    "source": "LinkedIn",
+    "campaign": "LinkedIn - Enterprise Solution Webinar",
+    "status": "Contacted",
+    "createdAt": "2026-07-07T09:12:00Z"
+  },
+  {
+    "id": "SL-003",
+    "name": "Rohan Sharma",
+    "email": "rohan.sharma@yahoo.co.in",
+    "phone": "+91 91234 56789",
+    "source": "WhatsApp",
+    "campaign": "WhatsApp - QR Code Scan (Store Front)",
+    "status": "New",
+    "createdAt": "2026-07-07T08:30:00Z"
+  },
+  {
+    "id": "SL-004",
+    "name": "Emily Watson",
+    "email": "emily.watson@gmail.com",
+    "phone": "+44 7700 900077",
+    "source": "Instagram",
+    "campaign": "Insta - Influencer Demo Code",
+    "status": "Qualified",
+    "createdAt": "2026-07-06T18:15:00Z"
+  },
+  {
+    "id": "SL-005",
+    "name": "Vikram Malhotra",
+    "email": "vikram.m@techcorp.in",
+    "phone": "+91 99887 76655",
+    "source": "Google Ads",
+    "campaign": "Google - Search Ads CRM Intent",
+    "status": "New",
+    "createdAt": "2026-07-06T15:20:00Z"
+  },
+  {
+    "id": "SL-006",
+    "name": "Aditi Rao",
+    "email": "aditi.rao@gmail.com",
+    "phone": "+91 98989 89898",
+    "source": "Website",
+    "campaign": "Website - Contact Us Form",
+    "status": "New",
+    "createdAt": "2026-07-06T11:45:00Z"
+  },
+  {
+    "id": "SL-007",
+    "name": "David Miller",
+    "email": "david.miller@acme.com",
+    "phone": "+1 (555) 234-5678",
+    "source": "LinkedIn",
+    "campaign": "LinkedIn - InMail Outreach Q3",
+    "status": "Contacted",
+    "createdAt": "2026-07-06T09:05:00Z"
+  },
+  {
+    "id": "SL-008",
+    "name": "Pooja Hegde",
+    "email": "pooja.h@rediffmail.com",
+    "phone": "+91 97766 55443",
+    "source": "Facebook",
+    "campaign": "FB - Retargeting Offer Page",
+    "status": "Qualified",
+    "createdAt": "2026-07-05T16:30:00Z"
+  },
+  {
+    "id": "SL-009",
+    "name": "Marcus Aurelius",
+    "email": "marcus.a@stoic.org",
+    "phone": "+39 06 123456",
+    "source": "Google Ads",
+    "campaign": "Google - Display Ads Leadership",
+    "status": "Unqualified",
+    "createdAt": "2026-07-05T14:10:00Z"
+  },
+  {
+    "id": "SL-010",
+    "name": "Ananya Sen",
+    "email": "ananya.sen@gmail.com",
+    "phone": "+91 90001 22233",
+    "source": "Instagram",
+    "campaign": "Insta - Direct Message Promotion",
+    "status": "New",
+    "createdAt": "2026-07-05T10:55:00Z"
+  },
+  {
+    "id": "SL-011",
+    "name": "Siddharth Roy",
+    "email": "siddharth.r@innovate.com",
+    "phone": "+91 88888 77777",
+    "source": "Website",
+    "campaign": "Website - Whitepaper Download",
+    "status": "Contacted",
+    "createdAt": "2026-07-05T08:15:00Z"
+  },
+  {
+    "id": "SL-012",
+    "name": "Karan Johar",
+    "email": "karan.j@kjo.com",
+    "phone": "+91 99999 99999",
+    "source": "WhatsApp",
+    "campaign": "WhatsApp - Customer Support Chatbot",
+    "status": "Qualified",
+    "createdAt": "2026-07-04T19:40:00Z"
+  },
+  {
+    "id": "SL-013",
+    "name": "Elena Petrova",
+    "email": "elena.p@mail.ru",
+    "phone": "+7 901 234-56-78",
+    "source": "Google Ads",
+    "campaign": "Google - Performance Max Campaign",
+    "status": "New",
+    "createdAt": "2026-07-04T14:22:00Z"
+  },
+  {
+    "id": "SL-014",
+    "name": "Deepika Padukone",
+    "email": "deepika.p@rk.com",
+    "phone": "+91 96543 21098",
+    "source": "Instagram",
+    "campaign": "Insta Story Swipe Up",
+    "status": "New",
+    "createdAt": "2026-07-04T11:00:00Z"
+  },
+  {
+    "id": "SL-015",
+    "name": "Michael Chang",
+    "email": "m.chang@techasia.sg",
+    "phone": "+65 9123 4567",
+    "source": "LinkedIn",
+    "campaign": "LinkedIn - Sponsored Content PM",
+    "status": "Qualified",
+    "createdAt": "2026-07-04T09:18:00Z"
+  },
+  {
+    "id": "SL-016",
+    "name": "Meera Nair",
+    "email": "meera.nair@gmail.com",
+    "phone": "+91 95432 10987",
+    "source": "WhatsApp",
+    "campaign": "WhatsApp - Broadcast Newsletter",
+    "status": "Contacted",
+    "createdAt": "2026-07-03T16:50:00Z"
+  },
+  {
+    "id": "SL-017",
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "phone": "+1 (555) 987-6543",
+    "source": "Website",
+    "campaign": "Website - Pricing Page Form",
+    "status": "New",
+    "createdAt": "2026-07-03T12:05:00Z"
+  },
+  {
+    "id": "SL-018",
+    "name": "Rhea Kapoor",
+    "email": "rhea.kapoor@gmail.com",
+    "phone": "+91 98123 45678",
+    "source": "Facebook",
+    "campaign": "FB - Lookalike Audience Ads",
+    "status": "Unqualified",
+    "createdAt": "2026-07-03T10:10:00Z"
+  },
+  {
+    "id": "SL-019",
+    "name": "Alex Mercer",
+    "email": "amercer@gentek.com",
+    "phone": "+1 (555) 789-0123",
+    "source": "Google Ads",
+    "campaign": "Google - Brand Term Bidding",
+    "status": "Qualified",
+    "createdAt": "2026-07-02T15:30:00Z"
+  },
+  {
+    "id": "SL-020",
+    "name": "Neha Kakkar",
+    "email": "neha.kakkar@music.in",
+    "phone": "+91 99000 88000",
+    "source": "Instagram",
+    "campaign": "Insta - Reel Ad Inbound",
+    "status": "New",
+    "createdAt": "2026-07-02T11:20:00Z"
+  }
+]

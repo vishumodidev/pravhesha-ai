@@ -1,26 +1,33 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom';
-import LoginPage from './features/auth/pages/LoginPage';
-import ProtectedRoute from './features/auth/components/ProtectedRoute';
-import DashboardLayout from './layouts/DashboardLayout';
-import DashboardPage from './features/dashboard/pages/DashboardPage';
-import VisitorIntelligencePage from './features/leads/pages/VisitorIntelligencePage';
-import SocialLeadsPage from './features/leads/pages/SocialLeadsPage';
-import AiTrainingPage from './features/ai-agents/pages/AiTrainingPage';
-import LeadsPage from './features/leads/pages/LeadsPage';
-import CustomersPage from './features/customers/pages/CustomersPage';
-import TicketsPage from './features/tickets/pages/TicketsPage';
-import CallLogsPage from './features/calling/pages/CallLogsPage';
-import WhatsAppPage from './features/whatsapp/pages/WhatsAppPage';
-import FollowUpsPage from './features/scheduling/pages/FollowUpsPage';
-import SchedulingPage from './features/scheduling/pages/SchedulingPage';
-import AnalyticsPage from './features/analytics/pages/AnalyticsPage';
-import NotificationsPage from './features/notifications/pages/NotificationsPage';
-import UserManagementPage from './features/settings/pages/UserManagementPage';
+import LoginPage from '../features/auth/pages/LoginPage';
+import ProtectedRoute from './ProtectedRoute';
+import PublicRoute from './PublicRoute';
+import DashboardLayout from '../layouts/DashboardLayout';
+import DashboardPage from '../features/dashboard/pages/DashboardPage';
+import VisitorIntelligencePage from '../features/leads/pages/VisitorIntelligencePage';
+import SocialLeadsPage from '../features/social-leads/pages/SocialLeadsPage';
+import AiTrainingPage from '../features/ai-agents/pages/AiTrainingPage';
+import LeadListPage from '../features/leads/pages/LeadListPage';
+import CustomersPage from '../features/customers/pages/CustomersPage';
+import TicketsPage from '../features/tickets/pages/TicketsPage';
+import CallLogsPage from '../features/calling/pages/CallLogsPage';
+import WhatsAppPage from '../features/whatsapp/pages/WhatsAppPage';
+import FollowUpsPage from '../features/scheduling/pages/FollowUpsPage';
+import SchedulingPage from '../features/scheduling/pages/SchedulingPage';
+import AnalyticsPage from '../features/analytics/pages/AnalyticsPage';
+import NotificationsPage from '../features/notifications/pages/NotificationsPage';
+import UserManagementPage from '../features/settings/pages/UserManagementPage';
 
 export const router = createBrowserRouter([
   {
     path: '/login',
-    element: <LoginPage />,
+    element: <PublicRoute />,
+    children: [
+      {
+        path: '',
+        element: <LoginPage />,
+      },
+    ],
   },
   {
     path: '/',
@@ -52,7 +59,7 @@ export const router = createBrowserRouter([
           },
           {
             path: 'leads',
-            element: <LeadsPage />,
+            element: <LeadListPage />,
           },
           {
             path: 'customers',

@@ -1,8 +1,8 @@
-import { apiClient } from '../../../api/apiClient';
+import dashboardData from '../../../mocks/dashboard/dashboard.json';
 import type { DashboardData } from '../types';
 
 export const dashboardApi = {
   getDashboardData: async (): Promise<DashboardData> => {
-    return await apiClient.get<DashboardData>('/dashboard');
+    return dashboardData as unknown as DashboardData;
   },
 };

@@ -15,6 +15,8 @@ import aiTrainingData from '../mocks/ai-training.json';
 import callLogsData from '../mocks/call-logs.json';
 import schedulingData from '../mocks/scheduling.json';
 import usersData from '../mocks/users.json';
+import socialLeadsData from '../features/social-leads/mocks/social-leads.json';
+import crmLeadsData from '../features/leads/mocks/leads.json';
 
 // In-memory mock database
 const db = {
@@ -24,6 +26,8 @@ const db = {
   chats: [...whatsappData],
   users: [...usersData],
   notifications: [...notificationsData],
+  socialLeads: [...socialLeadsData],
+  crmLeads: [...crmLeadsData],
   aiTraining: {
     trainingPerformanceData: [...aiTrainingData.performance],
     categoryData: [...aiTrainingData.categories],
@@ -237,6 +241,39 @@ export const setupMockAdapter = () => {
           leads: db.leads,
           leadsSourceData: leadsData.leadsSourceData
         },
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    // 3.5 Social Leads Endpoints
+    if (url.includes('/social-leads')) {
+      return {
+        data: db.socialLeads,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    // 3.6 CRM Leads Endpoints
+    if (url.includes('/crm-leads')) {
+      const leadIdMatch = url.match(/\/crm-leads\/([^/]+)$/);
+      if (leadIdMatch) {
+        const lead = db.crmLeads.find(l => l.id === leadIdMatch[1]);
+        return {
+          data: lead,
+          status: lead ? 200 : 404,
+          statusText: lead ? 'OK' : 'Not Found',
+          headers: {},
+          config,
+        };
+      }
+      return {
+        data: db.crmLeads,
         status: 200,
         statusText: 'OK',
         headers: {},

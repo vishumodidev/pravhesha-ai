@@ -16,7 +16,7 @@ import {
   X
 } from 'lucide-react';
 import { ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
-import { useLeads } from '../hooks/useLeads';
+import { useLeadsLegacy as useLeads } from '../hooks/useLeadsLegacy';
 import type { LeadRecord } from '../types';
 
 const leadSchema = z.object({
