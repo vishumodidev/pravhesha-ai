@@ -28,6 +28,7 @@ import crmNotificationsData from '../features/notifications/mocks/notifications.
 import crmDocumentsData from '../features/documents/mocks/documents.json';
 import aiConversationsData from '../features/ai-platform/mocks/conversations.json';
 import aiMessagesData from '../features/ai-platform/mocks/messages.json';
+import crmProvidersData from '../features/ai-platform/mocks/providers.json';
 
 // In-memory mock database
 const db = {
@@ -41,6 +42,7 @@ const db = {
   crmDocuments: [...crmDocumentsData],
   aiConversations: [...aiConversationsData],
   aiMessages: [...aiMessagesData],
+  crmProviders: [...crmProvidersData],
   socialLeads: [...socialLeadsData],
   crmLeads: [...crmLeadsData],
   leadActivities: [...leadActivitiesData],
@@ -644,6 +646,16 @@ export const setupMockAdapter = () => {
     if (url.includes('/crm-ai/conversations')) {
       return {
         data: db.aiConversations,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    if (url.includes('/crm-ai/providers')) {
+      return {
+        data: db.crmProviders,
         status: 200,
         statusText: 'OK',
         headers: {},

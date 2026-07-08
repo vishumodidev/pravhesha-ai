@@ -1,0 +1,47 @@
+[
+  {
+    "id": "openai",
+    "name": "OpenAI",
+    "type": "openai",
+    "enabled": true,
+    "status": "Online",
+    "health": "Healthy",
+    "latency": "140ms"
+  },
+  {
+    "id": "gemini",
+    "name": "Gemini",
+    "type": "gemini",
+    "enabled": true,
+    "status": "Online",
+    "health": "Healthy",
+    "latency": "210ms"
+  },
+  {
+    "id": "claude",
+    "name": "Claude",
+    "type": "claude",
+    "enabled": true,
+    "status": "Online",
+    "health": "Healthy",
+    "latency": "165ms"
+  },
+  {
+    "id": "ollama",
+    "name": "Ollama",
+    "type": "ollama",
+    "enabled": false,
+    "status": "Offline",
+    "health": "Unreachable",
+    "latency": "N/A"
+  },
+  {
+    "id": "azure-openai",
+    "name": "Azure OpenAI",
+    "type": "azure-openai",
+    "enabled": true,
+    "status": "Online",
+    "health": "Healthy",
+    "latency": "125ms"
+  }
+]
