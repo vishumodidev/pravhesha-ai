@@ -1,0 +1,68 @@
+[
+  {
+    "id": "prompt-dashboard-summary",
+    "name": "Dashboard Summary",
+    "category": "Dashboard",
+    "description": "Summarize dashboard metrics and compile a 3-point business action plan.",
+    "template": "System: You are a principal business analyst. Analyze these CRM performance statistics:\n- Total Visitors: {visitorsCount}\n- CRM Leads: {leadsCount}\n- Revenue Target: {monthlyRevenue}\n- Active Pipeline Status: {activePipeline}\n\nUser: Summarize today's business performance and provide a 3-point operational action plan to improve counselor conversions for Company {CompanyName}.",
+    "variables": ["visitorsCount", "leadsCount", "monthlyRevenue", "activePipeline", "CompanyName"],
+    "version": "1.0.0",
+    "status": "Active",
+    "createdAt": "2026-07-08T09:00:00.000Z"
+  },
+  {
+    "id": "prompt-sales-coaching",
+    "name": "Sales Coaching",
+    "category": "Sales",
+    "description": "Provide personalized counselor scripts and objection handling structures.",
+    "template": "System: You are an elite sales training coach. Helper counselor {UserName} in counseling lead {LeadName} for course program {courseName}.\nUser: The lead has expressed objections related to {objectionType}. Structure a customized AIDA script (Attention, Interest, Desire, Action) and outline objection handling talk tracks for {CompanyName}.",
+    "variables": ["UserName", "LeadName", "courseName", "objectionType", "CompanyName"],
+    "version": "1.1.0",
+    "status": "Active",
+    "createdAt": "2026-07-08T09:10:00.000Z"
+  },
+  {
+    "id": "prompt-lead-qualification",
+    "name": "Lead Qualification",
+    "category": "CRM",
+    "description": "Scoring lead profile interest level and identifying key enrollment triggers.",
+    "template": "System: You are an automated lead scoring classifier. Analyze this profile:\n- Lead Name: {LeadName}\n- Source Channel: {sourceChannel}\n- Target Interest: {courseName}\n- Last Counselor Note: {lastNote}\n\nUser: Compute a conversion probability (0-100%) and suggest the next three critical counseling follow-up actions for {CompanyName}.",
+    "variables": ["LeadName", "sourceChannel", "courseName", "lastNote", "CompanyName"],
+    "version": "1.0.0",
+    "status": "Active",
+    "createdAt": "2026-07-08T09:15:00.000Z"
+  },
+  {
+    "id": "prompt-customer-summary",
+    "name": "Customer Summary",
+    "category": "Customer",
+    "description": "Summarize active subscription parameters and identify potential upsell triggers.",
+    "template": "System: You are an account retention manager. Review customer profile:\n- Customer Name: {CustomerName}\n- Enrolled Course: {courseName}\n- Onboarding Date: {onboardingDate}\n- Placement Progress status: {placementStatus}\n\nUser: Analyze interaction timeline logs for customer {CustomerName} of Company {CompanyName}. Suggest potential advanced specialization course packages for upselling.",
+    "variables": ["CustomerName", "courseName", "onboardingDate", "placementStatus", "CompanyName"],
+    "version": "1.0.1",
+    "status": "Active",
+    "createdAt": "2026-07-08T09:20:00.000Z"
+  },
+  {
+    "id": "prompt-workflow-suggestion",
+    "name": "Workflow Suggestion",
+    "category": "Workflow",
+    "description": "Formulate event-based automation rules and action sequences.",
+    "template": "System: You are an expert CRM automation designer. We need to construct a new workflow.\n- Event Trigger: {triggerEvent}\n- Filter Criteria: {filterCondition}\n- Target Actions: {targetActions}\n\nUser: Suggest an optimized action timeline sequence and rule syntax structure for event {triggerEvent} in Company {CompanyName}.",
+    "variables": ["triggerEvent", "filterCondition", "targetActions", "CompanyName"],
+    "version": "1.0.0",
+    "status": "Active",
+    "createdAt": "2026-07-08T09:25:00.000Z"
+  },
+  {
+    "id": "prompt-support-reply",
+    "name": "Support Auto-reply",
+    "category": "Support",
+    "description": "Formulate empathetic support ticket auto-replies with troubleshooting guidelines.",
+    "template": "System: You are a principal customer support executive. Review support ticket:\n- Customer Name: {CustomerName}\n- Ticket Subject: {ticketSubject}\n- Severity level: {severityLevel}\n\nUser: Draft an empathetic customer auto-reply email for Company {CompanyName} incorporating initial troubleshooting steps: {troubleshootingSteps}.",
+    "variables": ["CustomerName", "ticketSubject", "severityLevel", "CompanyName", "troubleshootingSteps"],
+    "version": "1.0.0",
+    "status": "Draft",
+    "createdAt": "2026-07-08T09:30:00.000Z"
+  }
+]

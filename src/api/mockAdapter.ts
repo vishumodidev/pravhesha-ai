@@ -29,6 +29,7 @@ import crmDocumentsData from '../features/documents/mocks/documents.json';
 import aiConversationsData from '../features/ai-platform/mocks/conversations.json';
 import aiMessagesData from '../features/ai-platform/mocks/messages.json';
 import crmProvidersData from '../features/ai-platform/mocks/providers.json';
+import crmPromptsData from '../features/ai-platform/prompt-engine/mocks/prompts.json';
 
 // In-memory mock database
 const db = {
@@ -43,6 +44,7 @@ const db = {
   aiConversations: [...aiConversationsData],
   aiMessages: [...aiMessagesData],
   crmProviders: [...crmProvidersData],
+  crmPrompts: [...crmPromptsData],
   socialLeads: [...socialLeadsData],
   crmLeads: [...crmLeadsData],
   leadActivities: [...leadActivitiesData],
@@ -656,6 +658,53 @@ export const setupMockAdapter = () => {
     if (url.includes('/crm-ai/providers')) {
       return {
         data: db.crmProviders,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    if (url.includes('/crm-ai/prompts') && url.includes('/build') && method === 'post') {
+      const promptMatch = url.match(/\/crm-ai\/prompts\/([^/]+)\/build$/);
+      if (promptMatch) {
+        const promptId = promptMatch[1];
+        const prompt = db.crmPrompts.find((p) => p.id === promptId);
+        if (prompt) {
+          const { variables } = JSON.parse(config.data || '{}');
+          let compiled = prompt.template;
+          Object.entries(variables || {}).forEach(([k, v]) => {
+            compiled = compiled.replace(new RegExp(`{${k}}`, 'g'), String(v));
+          });
+          return {
+            data: { builtPrompt: compiled },
+            status: 200,
+            statusText: 'OK',
+            headers: {},
+            config,
+          };
+        }
+      }
+    }
+
+    if (url.includes('/crm-ai/prompts/')) {
+      const promptMatch = url.match(/\/crm-ai\/prompts\/([^/]+)$/);
+      if (promptMatch) {
+        const promptId = promptMatch[1];
+        const prompt = db.crmPrompts.find((p) => p.id === promptId);
+        return {
+          data: prompt,
+          status: prompt ? 200 : 404,
+          statusText: prompt ? 'OK' : 'Not Found',
+          headers: {},
+          config,
+        };
+      }
+    }
+
+    if (url.includes('/crm-ai/prompts')) {
+      return {
+        data: db.crmPrompts,
         status: 200,
         statusText: 'OK',
         headers: {},

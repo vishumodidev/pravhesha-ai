@@ -2,10 +2,11 @@ import { useState, useEffect, useRef } from 'react';
 import { useConversations } from '../hooks/useConversations';
 import { useAIChat } from '../hooks/useAIChat';
 import ProviderSettings from '../components/ProviderSettings';
-import { MessageSquare, Send, Brain, Cpu, RefreshCw, AlertCircle, ShieldAlert, Settings } from 'lucide-react';
+import PromptLibraryPage from '../prompt-engine/components/PromptLibraryPage';
+import { MessageSquare, Send, Brain, Cpu, RefreshCw, AlertCircle, ShieldAlert, Settings, BookOpen } from 'lucide-react';
 
 export default function AIPlatformPage() {
-  const [activeTab, setActiveTab] = useState<'chat' | 'settings'>('chat');
+  const [activeTab, setActiveTab] = useState<'chat' | 'settings' | 'prompts'>('chat');
   const {
     conversations,
     loading: conversationsLoading,
@@ -112,7 +113,18 @@ export default function AIPlatformPage() {
               }`}
             >
               <Settings size={12} />
-              LLM Providers
+              Providers
+            </button>
+            <button
+              onClick={() => setActiveTab('prompts')}
+              className={`flex-1 py-1.5 text-[10px] font-bold rounded-lg transition-all cursor-pointer flex items-center justify-center gap-1 ${
+                activeTab === 'prompts'
+                  ? 'bg-indigo-50 text-indigo-600 border border-indigo-100/50'
+                  : 'text-slate-500 hover:bg-slate-100 border border-transparent'
+              }`}
+            >
+              <BookOpen size={12} />
+              Library
             </button>
           </div>
         </div>
@@ -163,6 +175,8 @@ export default function AIPlatformPage() {
 
       {activeTab === 'settings' ? (
         <ProviderSettings />
+      ) : activeTab === 'prompts' ? (
+        <PromptLibraryPage />
       ) : (
         /* Right Column: Chat Window */
         <div className="flex-1 bg-white flex flex-col min-w-0">
