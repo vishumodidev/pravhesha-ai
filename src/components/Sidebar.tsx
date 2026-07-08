@@ -20,7 +20,8 @@ import {
   X,
   Kanban,
   BookOpen,
-  Network
+  Network,
+  Cable
 } from 'lucide-react';
 import { useClientStore } from '../app/useClientStore';
 import { useSidebarStore } from '../store/sidebar.store';
@@ -43,6 +44,7 @@ export default function Sidebar({ openCopilot }: SidebarProps) {
     { id: 'knowledge-base', label: 'Knowledge Base', icon: BookOpen, badge: 'New', path: '/dashboard/knowledge-base' },
     { id: 'memory', label: 'AI Memory', icon: Brain, badge: 'New', path: '/dashboard/memory' },
     { id: 'orchestrator', label: 'AI Orchestrator', icon: Network, badge: 'New', path: '/dashboard/orchestrator' },
+    { id: 'mcp', label: 'MCP Console', icon: Cable, badge: 'New', path: '/dashboard/mcp' },
     { id: 'leads', label: 'Leads', icon: UserCheck, path: '/dashboard/leads' },
     { id: 'pipeline', label: 'Sales Pipeline', icon: Kanban, badge: 'New', path: '/dashboard/pipeline' },
     { id: 'customers', label: 'Customers', icon: Users, badge: 'New', path: '/dashboard/customers' },

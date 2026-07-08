@@ -24,6 +24,7 @@ import UserManagementPage from '../features/settings/pages/UserManagementPage';
 import KnowledgeLibraryPage from '../features/knowledge-base/pages/KnowledgeLibraryPage';
 import MemoryPage from '../features/memory/pages/MemoryPage';
 import AgentOrchestratorPage from '../features/multi-agent/components/AgentOrchestratorPage';
+import MCPDashboard from '../features/mcp/pages/MCPDashboard';
 
 export const router = createBrowserRouter([
   {
@@ -79,6 +80,10 @@ export const router = createBrowserRouter([
           {
             path: 'orchestrator',
             element: <AgentOrchestratorPage />,
+          },
+          {
+            path: 'mcp',
+            element: <MCPDashboard />,
           },
           {
             path: 'leads',

@@ -1,0 +1,52 @@
+[
+  {
+    "id": "mcp-crm",
+    "name": "CRM Server",
+    "description": "Exposes local database models mapping leads status and whatsapp communication tables.",
+    "url": "http://localhost:8500/mcp/crm",
+    "transport": "sse",
+    "status": "connected",
+    "version": "1.0.0",
+    "enabled": true
+  },
+  {
+    "id": "mcp-gdrive",
+    "name": "Google Drive Server",
+    "description": "Interacts with GDrive APIs to scan and search directories documentation archives.",
+    "url": "stdio://gdrive-mcp-connector",
+    "transport": "stdio",
+    "status": "connected",
+    "version": "2.1.2",
+    "enabled": true
+  },
+  {
+    "id": "mcp-github",
+    "name": "GitHub Server",
+    "description": "Queries repositories branches, issues, files structures and pull requests.",
+    "url": "stdio://github-mcp-bridge",
+    "transport": "stdio",
+    "status": "disconnected",
+    "version": "1.4.0",
+    "enabled": false
+  },
+  {
+    "id": "mcp-slack",
+    "name": "Slack Server",
+    "description": "Dispatches channel message alerts and posts status summaries notifications.",
+    "url": "ws://slack-mcp-gateway:3000",
+    "transport": "websocket",
+    "status": "connecting",
+    "version": "1.1.0",
+    "enabled": true
+  },
+  {
+    "id": "mcp-notion",
+    "name": "Notion Server",
+    "description": "Fetches SOP workspaces, meeting notes pages and training manuals documents.",
+    "url": "http://localhost:8500/mcp/notion",
+    "transport": "sse",
+    "status": "connected",
+    "version": "1.0.2",
+    "enabled": true
+  }
+]
