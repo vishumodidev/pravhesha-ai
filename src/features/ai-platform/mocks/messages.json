@@ -1,0 +1,66 @@
+[
+  {
+    "id": "msg-1-1",
+    "conversationId": "conv-1",
+    "role": "user",
+    "content": "Can you review my sales pitch for the Full Stack Development program?",
+    "status": "sent",
+    "timestamp": "2026-07-08T10:00:00.000Z"
+  },
+  {
+    "id": "msg-1-2",
+    "conversationId": "conv-1",
+    "role": "assistant",
+    "content": "Of course! Please paste the pitch here. I will analyze its tone, value proposition, and call to action based on our sales playbook templates.",
+    "status": "sent",
+    "timestamp": "2026-07-08T10:01:00.000Z"
+  },
+  {
+    "id": "msg-1-3",
+    "conversationId": "conv-1",
+    "role": "user",
+    "content": "Here it is: 'Hey, are you interested in changing your career? We have a great full stack course starting next week. It includes React and Node. Let me know if you want to join!'",
+    "status": "sent",
+    "timestamp": "2026-07-08T10:05:00.000Z"
+  },
+  {
+    "id": "msg-1-4",
+    "conversationId": "conv-1",
+    "role": "assistant",
+    "content": "Thanks for sharing! Here is my feedback:\n1. **AIDA Hook:** The greeting is a bit passive. Try starting with a compelling stat like: 'Did you know software engineering roles are projected to grow 25% by 2030?'\n2. **Value Prop:** Instead of listing tools (React, Node), emphasize outcomes: 'Build production-ready web apps and secure placement support with our industry-led modules.'\n3. **Call-To-Action (CTA):** 'Let me know' is weak. Use: 'Would you like to attend our free demo class this Saturday at 10 AM?'\n\nWould you like me to rewrite it incorporating these suggestions?",
+    "status": "sent",
+    "timestamp": "2026-07-08T10:06:30.000Z"
+  },
+  {
+    "id": "msg-2-1",
+    "conversationId": "conv-2",
+    "role": "user",
+    "content": "Can you summarize the activity log for TechNova Solutions lead Rahul Sharma?",
+    "status": "sent",
+    "timestamp": "2026-07-08T09:15:00.000Z"
+  },
+  {
+    "id": "msg-2-2",
+    "conversationId": "conv-2",
+    "role": "assistant",
+    "content": "Sure! Here is a summary of the TechNova Solutions (Rahul Sharma) lead activity log:\n- **Lead Created:** July 7, 2026 via Website Form.\n- **Status:** Staged as Qualified.\n- **Activity Timeline:** Initial counseling call conducted by Priya Mehta. The lead expressed keen interest in the Data Science & AI program.\n- **Outstanding Action:** Next follow-up is scheduled for tomorrow to discuss the fee quotation and EMI options.\n\nThe AI Conversion Probability is currently estimated at 88%.",
+    "status": "sent",
+    "timestamp": "2026-07-08T09:16:00.000Z"
+  },
+  {
+    "id": "msg-3-1",
+    "conversationId": "conv-3",
+    "role": "user",
+    "content": "What follow-up tasks are overdue today?",
+    "status": "sent",
+    "timestamp": "2026-07-07T14:30:00.000Z"
+  },
+  {
+    "id": "msg-3-2",
+    "conversationId": "conv-3",
+    "role": "assistant",
+    "content": "You have 2 overdue follow-up tasks today:\n1. Call Dinesh Kumar regarding Data Science brochure verification (Overdue by 4 hours).\n2. Send welcome onboarding kit to Neha Patel (Overdue by 1 day).\n\nWould you like me to schedule reminders or draft a quick email template for these?",
+    "status": "sent",
+    "timestamp": "2026-07-07T14:31:00.000Z"
+  }
+]

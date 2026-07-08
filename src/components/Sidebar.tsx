@@ -37,6 +37,7 @@ export default function Sidebar({ openCopilot }: SidebarProps) {
     { id: 'visitor-intelligence', label: 'Visitor Intelligence', icon: Globe, path: '/dashboard/visitor-intelligence' },
     { id: 'social-leads', label: 'Social Leads', icon: Share2, path: '/dashboard/social-leads' },
     { id: 'ai-training', label: 'AI Training', icon: Brain, badge: 'New', path: '/dashboard/ai-training' },
+    { id: 'ai-platform', label: 'AI Platform', icon: Sparkles, badge: 'New', path: '/dashboard/ai-platform' },
     { id: 'leads', label: 'Leads', icon: UserCheck, path: '/dashboard/leads' },
     { id: 'pipeline', label: 'Sales Pipeline', icon: Kanban, badge: 'New', path: '/dashboard/pipeline' },
     { id: 'customers', label: 'Customers', icon: Users, badge: 'New', path: '/dashboard/customers' },

@@ -26,6 +26,8 @@ import crmPipelineData from '../features/pipeline/mocks/pipeline.json';
 import crmDashboardAnalyticsData from '../features/dashboard-analytics/mocks/dashboard-analytics.json';
 import crmNotificationsData from '../features/notifications/mocks/notifications.json';
 import crmDocumentsData from '../features/documents/mocks/documents.json';
+import aiConversationsData from '../features/ai-platform/mocks/conversations.json';
+import aiMessagesData from '../features/ai-platform/mocks/messages.json';
 
 // In-memory mock database
 const db = {
@@ -37,6 +39,8 @@ const db = {
   notifications: [...notificationsData],
   crmNotifications: [...crmNotificationsData],
   crmDocuments: [...crmDocumentsData],
+  aiConversations: [...aiConversationsData],
+  aiMessages: [...aiMessagesData],
   socialLeads: [...socialLeadsData],
   crmLeads: [...crmLeadsData],
   leadActivities: [...leadActivitiesData],
@@ -599,6 +603,85 @@ export const setupMockAdapter = () => {
     if (url.includes('/crm-documents')) {
       return {
         data: db.crmDocuments,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    // 3.16 CRM AI Platform Endpoints
+    if (url.includes('/crm-ai/conversations') && url.includes('/messages')) {
+      const convMatch = url.match(/\/crm-ai\/conversations\/([^/]+)\/messages$/);
+      if (convMatch) {
+        const convId = convMatch[1];
+        const messages = db.aiMessages.filter((m) => m.conversationId === convId);
+        return {
+          data: messages,
+          status: 200,
+          statusText: 'OK',
+          headers: {},
+          config,
+        };
+      }
+    }
+
+    if (url.includes('/crm-ai/conversations/')) {
+      const convMatch = url.match(/\/crm-ai\/conversations\/([^/]+)$/);
+      if (convMatch) {
+        const convId = convMatch[1];
+        const conv = db.aiConversations.find((c) => c.id === convId);
+        return {
+          data: conv,
+          status: conv ? 200 : 404,
+          statusText: conv ? 'OK' : 'Not Found',
+          headers: {},
+          config,
+        };
+      }
+    }
+
+    if (url.includes('/crm-ai/conversations')) {
+      return {
+        data: db.aiConversations,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    if (url.includes('/crm-ai/messages') && method === 'post') {
+      const { conversationId, content, provider } = JSON.parse(config.data || '{}');
+      
+      const userMessage = {
+        id: `msg-user-${Date.now()}`,
+        conversationId,
+        role: 'user',
+        content,
+        status: 'sent',
+        timestamp: new Date().toISOString(),
+      };
+      
+      const assistantMessage = {
+        id: `msg-assistant-${Date.now()}`,
+        conversationId,
+        role: 'assistant',
+        content: `This is a mock response from ${provider || 'default'} model provider. I have successfully received your query: "${content}"`,
+        status: 'sent',
+        timestamp: new Date().toISOString(),
+      };
+
+      db.aiMessages.push(userMessage);
+      db.aiMessages.push(assistantMessage);
+
+      return {
+        data: {
+          message: assistantMessage,
+          tokens: 42 + Math.floor(content.length / 4),
+          provider: provider || 'default',
+          executionTime: 120 + Math.floor(Math.random() * 200),
+        },
         status: 200,
         statusText: 'OK',
         headers: {},

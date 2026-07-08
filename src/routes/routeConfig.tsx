@@ -7,6 +7,7 @@ import DashboardAnalyticsPage from '../features/dashboard-analytics/pages/Dashbo
 import VisitorIntelligencePage from '../features/leads/pages/VisitorIntelligencePage';
 import SocialLeadsPage from '../features/social-leads/pages/SocialLeadsPage';
 import AiTrainingPage from '../features/ai-agents/pages/AiTrainingPage';
+import AIPlatformPage from '../features/ai-platform/pages/AIPlatformPage';
 import LeadListPage from '../features/leads/pages/LeadListPage';
 import LeadDetailsPage from '../features/leads/pages/LeadDetailsPage';
 import CustomerListPage from '../features/customers/pages/CustomerListPage';
@@ -59,6 +60,10 @@ export const router = createBrowserRouter([
           {
             path: 'ai-training',
             element: <AiTrainingPage />,
+          },
+          {
+            path: 'ai-platform',
+            element: <AIPlatformPage />,
           },
           {
             path: 'leads',

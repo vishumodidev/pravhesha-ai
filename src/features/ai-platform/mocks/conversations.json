@@ -1,0 +1,23 @@
+[
+  {
+    "id": "conv-1",
+    "title": "Sales Pitch Coaching",
+    "createdBy": "user-admin",
+    "createdAt": "2026-07-08T10:00:00.000Z",
+    "updatedAt": "2026-07-08T10:30:00.000Z"
+  },
+  {
+    "id": "conv-2",
+    "title": "Lead Summary - TechNova",
+    "createdBy": "user-admin",
+    "createdAt": "2026-07-08T09:15:00.000Z",
+    "updatedAt": "2026-07-08T09:20:00.000Z"
+  },
+  {
+    "id": "conv-3",
+    "title": "Task Plan - Follow-ups",
+    "createdBy": "user-admin",
+    "createdAt": "2026-07-07T14:30:00.000Z",
+    "updatedAt": "2026-07-07T14:45:00.000Z"
+  }
+]
