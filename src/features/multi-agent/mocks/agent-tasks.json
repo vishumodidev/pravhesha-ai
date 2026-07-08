@@ -1,0 +1,18 @@
+[
+  {
+    "id": "task-sales-01",
+    "agentId": "agent-sales",
+    "goal": "Verify new student leads qualified criteria",
+    "status": "Completed",
+    "createdAt": "2026-07-08T09:00:00.000Z",
+    "updatedAt": "2026-07-08T09:01:00.000Z"
+  },
+  {
+    "id": "task-support-01",
+    "agentId": "agent-support",
+    "goal": "Check active enrollment FAQs auto-replies draft",
+    "status": "Completed",
+    "createdAt": "2026-07-08T09:01:00.000Z",
+    "updatedAt": "2026-07-08T09:02:00.000Z"
+  }
+]

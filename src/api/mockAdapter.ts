@@ -34,6 +34,7 @@ import crmToolsData from '../features/ai-platform/tool-engine/mocks/tools.json';
 import knowledgeDocumentsData from '../features/knowledge-base/mocks/knowledge-documents.json';
 import crmMemoryData from '../features/memory/mocks/memory.json';
 import crmAgentsData from '../features/ai-agents/mocks/agents.json';
+import agentExecutionsData from '../features/multi-agent/mocks/agent-executions.json';
 
 // In-memory mock database
 const db = {
@@ -53,6 +54,7 @@ const db = {
   knowledgeDocuments: [...knowledgeDocumentsData],
   crmMemory: [...crmMemoryData],
   crmAgents: [...crmAgentsData],
+  agentExecutions: [...agentExecutionsData],
   socialLeads: [...socialLeadsData],
   crmLeads: [...crmLeadsData],
   leadActivities: [...leadActivitiesData],
@@ -955,6 +957,71 @@ export const setupMockAdapter = () => {
     if (url.includes('/crm-agents/list')) {
       return {
         data: db.crmAgents,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    if (url.includes('/crm-orchestrator/agents')) {
+      return {
+        data: [
+          { agentId: 'agent-sales', name: 'Sales Agent', role: 'Sales Counselor Consultant', status: 'Running' },
+          { agentId: 'agent-support', name: 'Support Agent', role: 'Customer Success Representative', status: 'Running' },
+          { agentId: 'agent-finance', name: 'Finance Agent', role: 'Accounts Auditor Assistant', status: 'Running' },
+        ],
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    if (url.includes('/crm-orchestrator/executions')) {
+      return {
+        data: db.agentExecutions,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    if (url.includes('/crm-orchestrator/run') && method === 'post') {
+      const { goal } = JSON.parse(config.data || '{}');
+      const startTime = Date.now();
+      const tasks = [];
+      const lowerGoal = goal.toLowerCase();
+
+      if (lowerGoal.includes('audit') || lowerGoal.includes('report') || lowerGoal.includes('sync')) {
+        tasks.push(
+          { id: `task-${Date.now()}-1`, agentId: 'agent-sales', goal: 'Scan active lead pipelines status indicators', status: 'Completed', createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() },
+          { id: `task-${Date.now()}-2`, agentId: 'agent-support', goal: 'Query support tickets backlog levels', status: 'Completed', createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() },
+          { id: `task-${Date.now()}-3`, agentId: 'agent-finance', goal: 'Compile invoices collections forecasting analytics', status: 'Completed', createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() }
+        );
+      } else {
+        tasks.push(
+          { id: `task-${Date.now()}-1`, agentId: 'agent-sales', goal: 'Gather primary target counseling leads criteria', status: 'Completed', createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() },
+          { id: `task-${Date.now()}-2`, agentId: 'agent-support', goal: 'Cross check FAQs template responses matching lead queries', status: 'Completed', createdAt: new Date().toISOString(), updatedAt: new Date().toISOString() }
+        );
+      }
+
+      const newExecution = {
+        id: `exec-${Date.now()}`,
+        goal,
+        status: 'Completed',
+        tasks,
+        finalResponse: `Multi-Agent Orchestrator successfully consolidated results across ${tasks.length} specialized agents to resolve goal: "${goal}".`,
+        startedAt: new Date(startTime).toISOString(),
+        endedAt: new Date().toISOString(),
+        executionTimeMs: 1200 + Math.floor(Math.random() * 600),
+      };
+
+      db.agentExecutions.push(newExecution);
+
+      return {
+        data: newExecution,
         status: 200,
         statusText: 'OK',
         headers: {},

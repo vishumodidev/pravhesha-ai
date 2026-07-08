@@ -23,6 +23,7 @@ import NotificationsPage from '../features/notifications/pages/NotificationsPage
 import UserManagementPage from '../features/settings/pages/UserManagementPage';
 import KnowledgeLibraryPage from '../features/knowledge-base/pages/KnowledgeLibraryPage';
 import MemoryPage from '../features/memory/pages/MemoryPage';
+import AgentOrchestratorPage from '../features/multi-agent/components/AgentOrchestratorPage';
 
 export const router = createBrowserRouter([
   {
@@ -74,6 +75,10 @@ export const router = createBrowserRouter([
           {
             path: 'memory',
             element: <MemoryPage />,
+          },
+          {
+            path: 'orchestrator',
+            element: <AgentOrchestratorPage />,
           },
           {
             path: 'leads',

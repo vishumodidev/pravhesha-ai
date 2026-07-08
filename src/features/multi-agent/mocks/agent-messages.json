@@ -1,0 +1,16 @@
+[
+  {
+    "id": "msg-001",
+    "fromAgentId": "agent-sales",
+    "toAgentId": "agent-support",
+    "content": "Hey Support, I have a lead (Rahul Sharma) who is interested in Full Stack Developer program. Do we have a refund FAQ document?",
+    "timestamp": "2026-07-08T09:00:15.000Z"
+  },
+  {
+    "id": "msg-002",
+    "fromAgentId": "agent-support",
+    "toAgentId": "agent-sales",
+    "content": "Hi Sales, yes we do! The refund document is indexed in FAQ category. I have auto-compiled the refund terms draft for Counselor review.",
+    "timestamp": "2026-07-08T09:00:45.000Z"
+  }
+]

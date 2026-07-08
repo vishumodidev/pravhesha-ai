@@ -1,0 +1,29 @@
+[
+  {
+    "id": "exec-001",
+    "goal": "Verify active counselor script pipeline status",
+    "status": "Completed",
+    "tasks": [
+      {
+        "id": "task-sales-01",
+        "agentId": "agent-sales",
+        "goal": "Verify new student leads qualified criteria",
+        "status": "Completed",
+        "createdAt": "2026-07-08T09:00:00.000Z",
+        "updatedAt": "2026-07-08T09:01:00.000Z"
+      },
+      {
+        "id": "task-support-01",
+        "agentId": "agent-support",
+        "goal": "Check active enrollment FAQs auto-replies draft",
+        "status": "Completed",
+        "createdAt": "2026-07-08T09:01:00.000Z",
+        "updatedAt": "2026-07-08T09:02:00.000Z"
+      }
+    ],
+    "finalResponse": "Sales Agent qualified 2 new leads and Support Agent drafted troubleshooting FAQ email response successfully.",
+    "startedAt": "2026-07-08T09:00:00.000Z",
+    "endedAt": "2026-07-08T09:02:00.000Z",
+    "executionTimeMs": 120000
+  }
+]
