@@ -8,6 +8,7 @@ import ActivityTimeline from '../../lead-activities/components/ActivityTimeline'
 import LeadNotesSection from '../../lead-notes/components/LeadNotesSection';
 import LeadTasksSection from '../../tasks/components/LeadTasksSection';
 import LeadCommunicationsSection from '../../communication/components/LeadCommunicationsSection';
+import DocumentsPanel from '../../documents/components/DocumentsPanel';
 import { RefreshCw, AlertCircle } from 'lucide-react';
 
 export default function LeadDetailsPage() {
@@ -69,6 +70,7 @@ export default function LeadDetailsPage() {
         <div className="lg:col-span-1 space-y-6">
           <LeadTasksSection leadId={lead.id} />
           <LeadNotesSection leadId={lead.id} />
+          <DocumentsPanel entityType="Lead" entityId={lead.id} />
         </div>
       </div>
     </div>

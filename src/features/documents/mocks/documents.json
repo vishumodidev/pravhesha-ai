@@ -1,0 +1,110 @@
+[
+  {
+    "id": "doc-1",
+    "entityType": "Lead",
+    "entityId": "1",
+    "fileName": "CompanyProfile.pdf",
+    "fileType": "pdf",
+    "fileSize": 2541000,
+    "uploadedBy": "Rahul Sharma",
+    "uploadedAt": "2026-07-07T11:00:00.000Z",
+    "url": "/documents/Lead-1-CompanyProfile.pdf",
+    "status": "active"
+  },
+  {
+    "id": "doc-2",
+    "entityType": "Lead",
+    "entityId": "1",
+    "fileName": "Requirements.docx",
+    "fileType": "docx",
+    "fileSize": 128000,
+    "uploadedBy": "Priya Mehta",
+    "uploadedAt": "2026-07-07T12:30:00.000Z",
+    "url": "/documents/Lead-1-Requirements.docx",
+    "status": "active"
+  },
+  {
+    "id": "doc-3",
+    "entityType": "Customer",
+    "entityId": "1",
+    "fileName": "Quotation.pdf",
+    "fileType": "pdf",
+    "fileSize": 384000,
+    "uploadedBy": "Priya Mehta",
+    "uploadedAt": "2026-07-06T15:00:00.000Z",
+    "url": "/documents/Customer-1-Quotation.pdf",
+    "status": "active"
+  },
+  {
+    "id": "doc-4",
+    "entityType": "Customer",
+    "entityId": "1",
+    "fileName": "Agreement.pdf",
+    "fileType": "pdf",
+    "fileSize": 1850000,
+    "uploadedBy": "Priya Mehta",
+    "uploadedAt": "2026-07-06T16:15:00.000Z",
+    "url": "/documents/Customer-1-Agreement.pdf",
+    "status": "active"
+  },
+  {
+    "id": "doc-5",
+    "entityType": "Customer",
+    "entityId": "1",
+    "fileName": "PAN.pdf",
+    "fileType": "pdf",
+    "fileSize": 512000,
+    "uploadedBy": "Rahul Sharma",
+    "uploadedAt": "2026-07-06T10:00:00.000Z",
+    "url": "/documents/Customer-1-PAN.pdf",
+    "status": "active"
+  },
+  {
+    "id": "doc-6",
+    "entityType": "Customer",
+    "entityId": "1",
+    "fileName": "GST.pdf",
+    "fileType": "pdf",
+    "fileSize": 768000,
+    "uploadedBy": "Rahul Sharma",
+    "uploadedAt": "2026-07-06T10:05:00.000Z",
+    "url": "/documents/Customer-1-GST.pdf",
+    "status": "active"
+  },
+  {
+    "id": "doc-7",
+    "entityType": "Customer",
+    "entityId": "1",
+    "fileName": "Invoice_July2026.pdf",
+    "fileType": "pdf",
+    "fileSize": 215000,
+    "uploadedBy": "Finance Admin",
+    "uploadedAt": "2026-07-07T09:00:00.000Z",
+    "url": "/documents/Customer-1-Invoice_July2026.pdf",
+    "status": "active"
+  },
+  {
+    "id": "doc-8",
+    "entityType": "Lead",
+    "entityId": "2",
+    "fileName": "ProjectOverview.pdf",
+    "fileType": "pdf",
+    "fileSize": 1420000,
+    "uploadedBy": "Vikram Patel",
+    "uploadedAt": "2026-07-07T09:30:00.000Z",
+    "url": "/documents/Lead-2-ProjectOverview.pdf",
+    "status": "active"
+  },
+  {
+    "id": "doc-9",
+    "entityType": "Customer",
+    "entityId": "2",
+    "fileName": "ServiceAgreement.pdf",
+    "fileType": "pdf",
+    "fileSize": 2200000,
+    "uploadedBy": "Anjali Singh",
+    "uploadedAt": "2026-07-04T13:00:00.000Z",
+    "url": "/documents/Customer-2-ServiceAgreement.pdf",
+    "status": "active"
+  }
+]

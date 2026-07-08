@@ -5,6 +5,7 @@ import CustomerSummary from '../components/CustomerSummary/CustomerSummary';
 import CustomerStatus from '../components/CustomerStatus/CustomerStatus';
 import CustomerProfile from '../components/CustomerProfile/CustomerProfile';
 import CustomerContacts from '../components/CustomerContacts/CustomerContacts';
+import DocumentsPanel from '../../documents/components/DocumentsPanel';
 import { RefreshCw, AlertCircle } from 'lucide-react';
 
 export default function CustomerDetailsPage() {
@@ -63,6 +64,9 @@ export default function CustomerDetailsPage() {
         phone={customer.phone}
         address={customer.address}
       />
+
+      {/* Document Management Section */}
+      <DocumentsPanel entityType="Customer" entityId={customer.id} />
     </div>
   );
 }

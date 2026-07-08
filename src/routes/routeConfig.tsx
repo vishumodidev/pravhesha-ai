@@ -3,7 +3,7 @@ import LoginPage from '../features/auth/pages/LoginPage';
 import ProtectedRoute from './ProtectedRoute';
 import PublicRoute from './PublicRoute';
 import DashboardLayout from '../layouts/DashboardLayout';
-import DashboardPage from '../features/dashboard/pages/DashboardPage';
+import DashboardAnalyticsPage from '../features/dashboard-analytics/pages/DashboardAnalyticsPage';
 import VisitorIntelligencePage from '../features/leads/pages/VisitorIntelligencePage';
 import SocialLeadsPage from '../features/social-leads/pages/SocialLeadsPage';
 import AiTrainingPage from '../features/ai-agents/pages/AiTrainingPage';
@@ -46,7 +46,7 @@ export const router = createBrowserRouter([
         children: [
           {
             path: '',
-            element: <DashboardPage />,
+            element: <DashboardAnalyticsPage />,
           },
           {
             path: 'visitor-intelligence',

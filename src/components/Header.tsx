@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Search, Phone, MessageSquare, Bell, HelpCircle, Command, Sparkles, Menu } from 'lucide-react';
 import { useSidebarStore } from '../store/sidebar.store';
+import { useNotifications } from '../features/notifications/hooks/useNotifications';
+import NotificationDrawer from '../features/notifications/components/NotificationDrawer';
 
 interface HeaderProps {
   searchQuery: string;
@@ -11,6 +13,8 @@ interface HeaderProps {
 export default function Header({ searchQuery, setSearchQuery, openCopilot }: HeaderProps) {
   const [showNotifications, setShowNotifications] = useState(false);
   const { setSidebarOpen } = useSidebarStore();
+  const { data: notifications } = useNotifications();
+  const unreadCount = notifications.filter((n) => !n.isRead).length;
 
   return (
     <header className="h-16 border-b border-slate-200 bg-white/80 backdrop-blur-md flex items-center justify-between px-4 sm:px-6 sticky top-0 z-30 select-none">
@@ -78,50 +82,18 @@ export default function Header({ searchQuery, setSearchQuery, openCopilot }: Hea
         {/* Notification Bell */}
         <div className="relative">
           <button
-            onClick={() => setShowNotifications(!showNotifications)}
+            onClick={() => setShowNotifications(true)}
             className="p-2 text-slate-500 hover:text-indigo-600 hover:bg-indigo-50 rounded-xl transition-all border border-transparent hover:border-indigo-100 relative cursor-pointer"
           >
             <Bell size={18} />
-            <span className="absolute top-1 right-1 w-2 h-2 bg-rose-500 rounded-full border border-white" />
+            {unreadCount > 0 && (
+              <span className="absolute top-0.5 right-0.5 w-4 h-4 bg-rose-500 rounded-full border border-white text-[9px] font-bold text-white flex items-center justify-center">
+                {unreadCount}
+              </span>
+            )}
           </button>
 
-          {/* Quick Notification Dropdown */}
-          {showNotifications && (
-            <div className="absolute right-0 mt-3 w-80 bg-white border border-slate-200 rounded-2xl shadow-xl py-3 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-              <div className="px-4 pb-2 border-b border-slate-100 flex items-center justify-between">
-                <span className="font-bold text-slate-808 text-sm">Notifications</span>
-                <button
-                  className="text-xs text-indigo-600 font-semibold hover:underline cursor-pointer"
-                  onClick={() => setShowNotifications(false)}
-                >
-                  Mark all read
-                </button>
-              </div>
-              <div className="max-h-64 overflow-y-auto">
-                <div className="p-3 border-b border-slate-50 hover:bg-slate-50 flex gap-2">
-                  <div className="w-2 h-2 rounded-full bg-indigo-600 mt-1.5 shrink-0" />
-                  <div>
-                    <p className="text-xs text-slate-800 font-medium">New lead qualified by AI: Rahul Sharma</p>
-                    <span className="text-[10px] text-slate-404">2 mins ago</span>
-                  </div>
-                </div>
-                <div className="p-3 border-b border-slate-50 hover:bg-slate-50 flex gap-2">
-                  <div className="w-2 h-2 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
-                  <div>
-                    <p className="text-xs text-slate-800 font-medium">SOP training updated successfully</p>
-                    <span className="text-[10px] text-slate-404">1 hour ago</span>
-                  </div>
-                </div>
-                <div className="p-3 hover:bg-slate-50 flex gap-2">
-                  <div className="w-2 h-2 rounded-full bg-amber-500 mt-1.5 shrink-0" />
-                  <div>
-                    <p className="text-xs text-slate-800 font-medium">Missed call from +91 90012 34567</p>
-                    <span className="text-[10px] text-slate-404">4 hours ago</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
+          <NotificationDrawer isOpen={showNotifications} onClose={() => setShowNotifications(false)} />
         </div>
 
         {/* Help Center */}

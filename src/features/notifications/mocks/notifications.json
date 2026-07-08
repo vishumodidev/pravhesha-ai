@@ -1,0 +1,62 @@
+[
+  {
+    "id": "notif-1",
+    "title": "New Lead Assigned",
+    "message": "Rahul Sharma has been assigned to you as a new lead.",
+    "type": "Success",
+    "priority": "high",
+    "isRead": false,
+    "userId": "user-admin",
+    "createdAt": "2026-07-08T12:38:00.000Z"
+  },
+  {
+    "id": "notif-2",
+    "title": "Follow-up Due",
+    "message": "You have a follow-up task due tomorrow for EdTech Demo.",
+    "type": "Warning",
+    "priority": "medium",
+    "isRead": false,
+    "userId": "user-admin",
+    "createdAt": "2026-07-08T11:40:00.000Z"
+  },
+  {
+    "id": "notif-3",
+    "title": "Customer Created",
+    "message": "Amit Verma has successfully completed admission and onboarding.",
+    "type": "Success",
+    "priority": "medium",
+    "isRead": true,
+    "userId": "user-admin",
+    "createdAt": "2026-07-08T08:40:00.000Z"
+  },
+  {
+    "id": "notif-4",
+    "title": "Workflow Completed",
+    "message": "System automation completed for 'New Lead Welcome Journey'.",
+    "type": "System",
+    "priority": "low",
+    "isRead": true,
+    "userId": "user-admin",
+    "createdAt": "2026-07-07T12:00:00.000Z"
+  },
+  {
+    "id": "notif-5",
+    "title": "WhatsApp Message Failed",
+    "message": "Failed to send brochure link to Dinesh Kumar (+91 98765 43210).",
+    "type": "Error",
+    "priority": "high",
+    "isRead": false,
+    "userId": "user-admin",
+    "createdAt": "2026-07-06T15:30:00.000Z"
+  },
+  {
+    "id": "notif-6",
+    "title": "AI Recommendation Ready",
+    "message": "AI has analyzed your pipeline and suggested 3 high-value actions.",
+    "type": "Info",
+    "priority": "low",
+    "isRead": false,
+    "userId": "user-admin",
+    "createdAt": "2026-07-06T09:15:00.000Z"
+  }
+]

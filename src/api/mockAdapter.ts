@@ -23,6 +23,9 @@ import crmTasksData from '../features/tasks/mocks/tasks.json';
 import crmCommunicationsData from '../features/communication/mocks/communications.json';
 import crmCustomersData from '../features/customers/mocks/customers.json';
 import crmPipelineData from '../features/pipeline/mocks/pipeline.json';
+import crmDashboardAnalyticsData from '../features/dashboard-analytics/mocks/dashboard-analytics.json';
+import crmNotificationsData from '../features/notifications/mocks/notifications.json';
+import crmDocumentsData from '../features/documents/mocks/documents.json';
 
 // In-memory mock database
 const db = {
@@ -32,6 +35,8 @@ const db = {
   chats: [...whatsappData],
   users: [...usersData],
   notifications: [...notificationsData],
+  crmNotifications: [...crmNotificationsData],
+  crmDocuments: [...crmDocumentsData],
   socialLeads: [...socialLeadsData],
   crmLeads: [...crmLeadsData],
   leadActivities: [...leadActivitiesData],
@@ -40,6 +45,7 @@ const db = {
   crmCommunications: [...crmCommunicationsData],
   crmCustomers: [...crmCustomersData],
   crmPipeline: [...crmPipelineData],
+  crmDashboardAnalytics: { ...crmDashboardAnalyticsData },
   aiTraining: {
     trainingPerformanceData: [...aiTrainingData.performance],
     categoryData: [...aiTrainingData.categories],
@@ -493,6 +499,106 @@ export const setupMockAdapter = () => {
       
       return {
         data: db.crmPipeline,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    // 3.13 CRM Dashboard Analytics Endpoints
+    if (url.includes('/crm-dashboard-analytics')) {
+      return {
+        data: db.crmDashboardAnalytics,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    if (url.includes('/crm-dashboard-cards')) {
+      const {
+        totalVisitors,
+        totalSocialLeads,
+        totalLeads,
+        customers,
+        activePipeline,
+        monthlyRevenue,
+        pendingTasks,
+        wonDeals,
+      } = db.crmDashboardAnalytics;
+      return {
+        data: {
+          totalVisitors,
+          totalSocialLeads,
+          totalLeads,
+          customers,
+          activePipeline,
+          monthlyRevenue,
+          pendingTasks,
+          wonDeals,
+        },
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    // 3.14 CRM Notifications Endpoints
+    if (url.includes('/crm-notifications/unread')) {
+      return {
+        data: db.crmNotifications.filter((n) => !n.isRead),
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    if (url.includes('/crm-notifications')) {
+      return {
+        data: db.crmNotifications,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    // 3.15 CRM Documents Endpoints
+    if (url.includes('/crm-documents/entity')) {
+      const entityType = config.params?.entityType;
+      const entityId = config.params?.entityId;
+      const filtered = db.crmDocuments.filter(
+        (doc) => doc.entityType.toLowerCase() === entityType?.toLowerCase() && String(doc.entityId) === String(entityId)
+      );
+      return {
+        data: filtered,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    const docMatch = url.match(/\/crm-documents\/([^/]+)$/);
+    if (docMatch && !url.includes('/crm-documents/entity')) {
+      const docId = docMatch[1];
+      const doc = db.crmDocuments.find((d) => d.id === docId);
+      return {
+        data: doc,
+        status: doc ? 200 : 404,
+        statusText: doc ? 'OK' : 'Not Found',
+        headers: {},
+        config,
+      };
+    }
+
+    if (url.includes('/crm-documents')) {
+      return {
+        data: db.crmDocuments,
         status: 200,
         statusText: 'OK',
         headers: {},
