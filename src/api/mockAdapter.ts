@@ -33,6 +33,7 @@ import crmPromptsData from '../features/ai-platform/prompt-engine/mocks/prompts.
 import crmToolsData from '../features/ai-platform/tool-engine/mocks/tools.json';
 import knowledgeDocumentsData from '../features/knowledge-base/mocks/knowledge-documents.json';
 import crmMemoryData from '../features/memory/mocks/memory.json';
+import crmAgentsData from '../features/ai-agents/mocks/agents.json';
 
 // In-memory mock database
 const db = {
@@ -51,6 +52,7 @@ const db = {
   crmTools: [...crmToolsData],
   knowledgeDocuments: [...knowledgeDocumentsData],
   crmMemory: [...crmMemoryData],
+  crmAgents: [...crmAgentsData],
   socialLeads: [...socialLeadsData],
   crmLeads: [...crmLeadsData],
   leadActivities: [...leadActivitiesData],
@@ -870,6 +872,89 @@ export const setupMockAdapter = () => {
     if (url.includes('/crm-memory')) {
       return {
         data: db.crmMemory,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    if (url.includes('/crm-agents/') && url.includes('/execute') && method === 'post') {
+      const execMatch = url.match(/\/crm-agents\/([^/]+)\/execute$/);
+      if (execMatch) {
+        const agentId = execMatch[1];
+        const { goal } = JSON.parse(config.data || '{}');
+        const agent = db.crmAgents.find((a: any) => a.id === agentId);
+        if (!agent) {
+          return {
+            data: { error: `Agent ${agentId} not found` },
+            status: 404,
+            statusText: 'Not Found',
+            headers: {},
+            config,
+          };
+        }
+
+        let steps: any[] = [];
+        const key = agentId.toLowerCase();
+        if (key.includes('sales')) {
+          steps = [
+            { id: 'step-1', title: 'Query active leads', description: 'Fetch CRM leads list filtered by new status', status: 'completed', toolId: 'tool-get-leads', result: { success: true, count: 2 } },
+            { id: 'step-2', title: 'Compile sales coaching script', description: 'Construct counselor advice script template', status: 'completed', result: { success: true } },
+            { id: 'step-3', title: 'Schedule counselor follow-up task', description: 'Insert new CRM task activity record', status: 'completed', toolId: 'tool-create-task', result: { success: true, taskId: 'task-102' } },
+          ];
+        } else if (key.includes('support')) {
+          steps = [
+            { id: 'step-1', title: 'Fetch unread support tickets', description: 'Query tickets catalogue in CRM', status: 'completed', result: { success: true } },
+            { id: 'step-2', title: 'Generate FAQ auto-reply', description: 'Build troubleshooting email draft from FAQ document resources', status: 'completed', result: { success: true } },
+          ];
+        } else if (key.includes('hr')) {
+          steps = [
+            { id: 'step-1', title: 'Search Employee Handbook', description: 'Fetch policy documents content from Knowledge Base', status: 'completed', result: { success: true } },
+            { id: 'step-2', title: 'Summarize leave policies', description: 'Extract leave calculations parameters', status: 'completed', result: { success: true } },
+          ];
+        } else {
+          steps = [
+            { id: 'step-1', title: 'Analyze business goal request', description: 'Parse target parameters logs', status: 'completed', result: { success: true } },
+            { id: 'step-2', title: 'Execute default operations sequence', description: 'Fetch stats summary indicators', status: 'completed', toolId: 'tool-get-dashboard-summary', result: { success: true } },
+          ];
+        }
+
+        return {
+          data: {
+            agentId,
+            goal,
+            status: 'success',
+            steps,
+            response: `Agent [${agent.name}] successfully completed the goal: "${goal}". All plan steps executed.`,
+            executionTimeMs: 1200 + Math.floor(Math.random() * 550),
+          },
+          status: 200,
+          statusText: 'OK',
+          headers: {},
+          config,
+        };
+      }
+    }
+
+    if (url.includes('/crm-agents/list/')) {
+      const agentMatch = url.match(/\/crm-agents\/list\/([^/]+)$/);
+      if (agentMatch) {
+        const agentId = agentMatch[1];
+        const agent = db.crmAgents.find((a: any) => a.id === agentId);
+        return {
+          data: agent,
+          status: agent ? 200 : 404,
+          statusText: agent ? 'OK' : 'Not Found',
+          headers: {},
+          config,
+        };
+      }
+    }
+
+    if (url.includes('/crm-agents/list')) {
+      return {
+        data: db.crmAgents,
         status: 200,
         statusText: 'OK',
         headers: {},

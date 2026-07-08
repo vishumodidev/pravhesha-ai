@@ -4,10 +4,11 @@ import { useAIChat } from '../hooks/useAIChat';
 import ProviderSettings from '../components/ProviderSettings';
 import PromptLibraryPage from '../prompt-engine/components/PromptLibraryPage';
 import ToolRegistryPage from '../tool-engine/components/ToolRegistryPage';
+import AgentRegistryPage from '../../ai-agents/components/AgentRegistryPage';
 import { MessageSquare, Send, Brain, Cpu, RefreshCw, AlertCircle, ShieldAlert, Settings, BookOpen, Terminal } from 'lucide-react';
 
 export default function AIPlatformPage() {
-  const [activeTab, setActiveTab] = useState<'chat' | 'settings' | 'prompts' | 'tools'>('chat');
+  const [activeTab, setActiveTab] = useState<'chat' | 'settings' | 'prompts' | 'tools' | 'agents'>('chat');
   const {
     conversations,
     loading: conversationsLoading,
@@ -138,6 +139,17 @@ export default function AIPlatformPage() {
               <Terminal size={12} />
               Tools
             </button>
+            <button
+              onClick={() => setActiveTab('agents')}
+              className={`flex-1 py-1.5 text-[10px] font-bold rounded-lg transition-all cursor-pointer flex items-center justify-center gap-1 ${
+                activeTab === 'agents'
+                  ? 'bg-indigo-50 text-indigo-600 border border-indigo-100/50'
+                  : 'text-slate-500 hover:bg-slate-100 border border-transparent'
+              }`}
+            >
+              <Cpu size={12} />
+              Agents
+            </button>
           </div>
         </div>
 
@@ -191,6 +203,8 @@ export default function AIPlatformPage() {
         <PromptLibraryPage />
       ) : activeTab === 'tools' ? (
         <ToolRegistryPage />
+      ) : activeTab === 'agents' ? (
+        <AgentRegistryPage />
       ) : (
         /* Right Column: Chat Window */
         <div className="flex-1 bg-white flex flex-col min-w-0">

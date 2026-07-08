@@ -1,0 +1,52 @@
+[
+  {
+    "id": "agent-sales",
+    "name": "Sales Agent",
+    "description": "Qualifies new leads and drafts personalized counseling scripting templates.",
+    "role": "Sales Counselor Consultant",
+    "status": "Idle",
+    "provider": "OpenAI GPT-4o",
+    "version": "1.2.0",
+    "createdAt": "2026-07-08T09:00:00.000Z"
+  },
+  {
+    "id": "agent-support",
+    "name": "Support Agent",
+    "description": "Reviews open help tickets and auto-drafts responses from troubleshooting FAQ catalogs.",
+    "role": "Customer Success Representative",
+    "status": "Idle",
+    "provider": "Anthropic Claude 3.5 Sonnet",
+    "version": "1.0.1",
+    "createdAt": "2026-07-08T09:05:00.000Z"
+  },
+  {
+    "id": "agent-hr",
+    "name": "HR Agent",
+    "description": "Queries internal company handbook guidelines and answers leave policies questions.",
+    "role": "HR Policy Coordinator",
+    "status": "Idle",
+    "provider": "Google Gemini 1.5 Pro",
+    "version": "1.0.0",
+    "createdAt": "2026-07-08T09:10:00.000Z"
+  },
+  {
+    "id": "agent-finance",
+    "name": "Finance Agent",
+    "description": "Generates mock invoice status calculations and billing cycle forecast indicators.",
+    "role": "Accounts Auditor Assistant",
+    "status": "Idle",
+    "provider": "Azure OpenAI GPT-4o",
+    "version": "1.1.0",
+    "createdAt": "2026-07-08T09:15:00.000Z"
+  },
+  {
+    "id": "agent-marketing",
+    "name": "Marketing Agent",
+    "description": "Analyzes social channel traffic statistics and drafts course packaging newsletters.",
+    "role": "Campaign Strategy Analyst",
+    "status": "Idle",
+    "provider": "Ollama Llama 3",
+    "version": "1.0.0",
+    "createdAt": "2026-07-08T09:20:00.000Z"
+  }
+]
