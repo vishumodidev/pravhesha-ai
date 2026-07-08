@@ -1,0 +1,151 @@
+[
+  {
+    "id": "tool-get-leads",
+    "name": "GetLeads",
+    "description": "Fetch a list of active leads from the CRM, with optional status and program name filters.",
+    "category": "CRM",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string",
+          "description": "Filter leads by their current status (e.g. New, Contacted, Qualified, Lost)",
+          "enum": ["New", "Contacted", "Qualified", "Lost"]
+        },
+        "program": {
+          "type": "string",
+          "description": "Filter leads interested in a specific program name (e.g. Full Stack, Data Science)"
+        }
+      },
+      "required": []
+    },
+    "enabled": true,
+    "version": "1.0.0",
+    "createdAt": "2026-07-08T09:00:00.000Z"
+  },
+  {
+    "id": "tool-get-customers",
+    "name": "GetCustomers",
+    "description": "Fetch a list of active customers with subscription summaries.",
+    "category": "Customer",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "limit": {
+          "type": "number",
+          "description": "Maximum number of customers to return"
+        }
+      },
+      "required": []
+    },
+    "enabled": true,
+    "version": "1.0.0",
+    "createdAt": "2026-07-08T09:00:00.000Z"
+  },
+  {
+    "id": "tool-get-tasks",
+    "name": "GetTasks",
+    "description": "Query follow-up tasks by counselor assignment and completion status.",
+    "category": "Task",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "counselor": {
+          "type": "string",
+          "description": "Name of the assigned counselor"
+        },
+        "onlyOverdue": {
+          "type": "boolean",
+          "description": "If true, returns only overdue follow-ups"
+        }
+      },
+      "required": ["counselor"]
+    },
+    "enabled": true,
+    "version": "1.0.0",
+    "createdAt": "2026-07-08T09:00:00.000Z"
+  },
+  {
+    "id": "tool-create-task",
+    "name": "CreateTask",
+    "description": "Create a new CRM follow-up task assigned to a specific counselor.",
+    "category": "Task",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "leadId": {
+          "type": "string",
+          "description": "Associated lead ID reference"
+        },
+        "title": {
+          "type": "string",
+          "description": "Brief description of the task objective"
+        },
+        "dueDate": {
+          "type": "string",
+          "description": "Target completion date in YYYY-MM-DD format"
+        },
+        "counselor": {
+          "type": "string",
+          "description": "Assigned counselor name"
+        }
+      },
+      "required": ["leadId", "title", "dueDate", "counselor"]
+    },
+    "enabled": true,
+    "version": "1.1.0",
+    "createdAt": "2026-07-08T09:05:00.000Z"
+  },
+  {
+    "id": "tool-get-dashboard-summary",
+    "name": "GetDashboardSummary",
+    "description": "Compile CRM statistics for visitors, revenue, leads, and overdue tasks.",
+    "category": "Dashboard",
+    "parameters": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    },
+    "enabled": true,
+    "version": "1.0.0",
+    "createdAt": "2026-07-08T09:00:00.000Z"
+  },
+  {
+    "id": "tool-get-notifications",
+    "name": "GetNotifications",
+    "description": "Fetch unread system and CRM event alert notifications.",
+    "category": "Notification",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "onlyUnread": {
+          "type": "boolean",
+          "description": "If true, filters out read notifications"
+        }
+      },
+      "required": []
+    },
+    "enabled": true,
+    "version": "1.0.0",
+    "createdAt": "2026-07-08T09:00:00.000Z"
+  },
+  {
+    "id": "tool-get-workflow-status",
+    "name": "GetWorkflowStatus",
+    "description": "Get execution history and status logs for lead workflow triggers.",
+    "category": "Workflow",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "workflowId": {
+          "type": "string",
+          "description": "Unique identifier of the workflow rule"
+        }
+      },
+      "required": ["workflowId"]
+    },
+    "enabled": false,
+    "version": "1.0.0",
+    "createdAt": "2026-07-08T09:00:00.000Z"
+  }
+]

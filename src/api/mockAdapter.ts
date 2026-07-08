@@ -30,6 +30,7 @@ import aiConversationsData from '../features/ai-platform/mocks/conversations.jso
 import aiMessagesData from '../features/ai-platform/mocks/messages.json';
 import crmProvidersData from '../features/ai-platform/mocks/providers.json';
 import crmPromptsData from '../features/ai-platform/prompt-engine/mocks/prompts.json';
+import crmToolsData from '../features/ai-platform/tool-engine/mocks/tools.json';
 
 // In-memory mock database
 const db = {
@@ -45,6 +46,7 @@ const db = {
   aiMessages: [...aiMessagesData],
   crmProviders: [...crmProvidersData],
   crmPrompts: [...crmPromptsData],
+  crmTools: [...crmToolsData],
   socialLeads: [...socialLeadsData],
   crmLeads: [...crmLeadsData],
   leadActivities: [...leadActivitiesData],
@@ -702,9 +704,96 @@ export const setupMockAdapter = () => {
       }
     }
 
-    if (url.includes('/crm-ai/prompts')) {
+    if (url.includes('/crm-ai/tools') && url.includes('/execute') && method === 'post') {
+      const toolMatch = url.match(/\/crm-ai\/tools\/([^/]+)\/execute$/);
+      if (toolMatch) {
+        const toolId = toolMatch[1];
+        const { parameters } = JSON.parse(config.data || '{}');
+        const tool = db.crmTools.find((t) => t.id === toolId);
+        if (!tool) {
+          return {
+            data: { toolId, status: 'error', response: 'Tool not found', executionTimeMs: 5 },
+            status: 200,
+            statusText: 'OK',
+            headers: {},
+            config,
+          };
+        }
+
+        // Validate required params
+        const reqFields = tool.parameters.required || [];
+        for (const field of reqFields) {
+          if (parameters[field] === undefined || parameters[field] === null || parameters[field] === '') {
+            return {
+              data: { toolId, status: 'error', response: `Validation error: Missing required parameter: ${field}`, executionTimeMs: 5 },
+              status: 200,
+              statusText: 'OK',
+              headers: {},
+              config,
+            };
+          }
+        }
+
+        let payload: any;
+        switch (tool.name) {
+          case 'GetLeads':
+            payload = { success: true, count: 2, leads: [{ id: 'lead-1', name: 'Rahul Sharma', status: parameters.status || 'Qualified' }, { id: 'lead-2', name: 'Dinesh Kumar', status: parameters.status || 'Contacted' }] };
+            break;
+          case 'GetCustomers':
+            payload = { success: true, count: 3, customers: [{ id: 'cust-1', name: 'Vikram Patel' }, { id: 'cust-2', name: 'Neha Patel' }].slice(0, parameters.limit || 2) };
+            break;
+          case 'GetTasks':
+            payload = { success: true, tasks: [{ id: 'task-1', title: 'Call Rahul Sharma', counselor: parameters.counselor }] };
+            break;
+          case 'CreateTask':
+            payload = { success: true, message: 'Task created.', task: { title: parameters.title, dueDate: parameters.dueDate, counselor: parameters.counselor } };
+            break;
+          case 'GetDashboardSummary':
+            payload = { success: true, visitors: 12450, socialLeads: 240, crmLeads: 85 };
+            break;
+          case 'GetNotifications':
+            payload = { success: true, notifications: [{ title: 'New Lead Assigned' }] };
+            break;
+          case 'GetWorkflowStatus':
+            payload = { success: true, workflowId: parameters.workflowId, status: 'Active' };
+            break;
+          default:
+            payload = { success: true, message: 'Mock response', parameters };
+        }
+
+        return {
+          data: {
+            toolId,
+            status: 'success',
+            response: payload,
+            executionTimeMs: 150 + Math.floor(Math.random() * 100),
+          },
+          status: 200,
+          statusText: 'OK',
+          headers: {},
+          config,
+        };
+      }
+    }
+
+    if (url.includes('/crm-ai/tools/')) {
+      const toolMatch = url.match(/\/crm-ai\/tools\/([^/]+)$/);
+      if (toolMatch) {
+        const toolId = toolMatch[1];
+        const tool = db.crmTools.find((t) => t.id === toolId);
+        return {
+          data: tool,
+          status: tool ? 200 : 404,
+          statusText: tool ? 'OK' : 'Not Found',
+          headers: {},
+          config,
+        };
+      }
+    }
+
+    if (url.includes('/crm-ai/tools')) {
       return {
-        data: db.crmPrompts,
+        data: db.crmTools,
         status: 200,
         statusText: 'OK',
         headers: {},
