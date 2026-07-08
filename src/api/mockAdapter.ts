@@ -31,6 +31,7 @@ import aiMessagesData from '../features/ai-platform/mocks/messages.json';
 import crmProvidersData from '../features/ai-platform/mocks/providers.json';
 import crmPromptsData from '../features/ai-platform/prompt-engine/mocks/prompts.json';
 import crmToolsData from '../features/ai-platform/tool-engine/mocks/tools.json';
+import knowledgeDocumentsData from '../features/knowledge-base/mocks/knowledge-documents.json';
 
 // In-memory mock database
 const db = {
@@ -47,6 +48,7 @@ const db = {
   crmProviders: [...crmProvidersData],
   crmPrompts: [...crmPromptsData],
   crmTools: [...crmToolsData],
+  knowledgeDocuments: [...knowledgeDocumentsData],
   socialLeads: [...socialLeadsData],
   crmLeads: [...crmLeadsData],
   leadActivities: [...leadActivitiesData],
@@ -794,6 +796,31 @@ export const setupMockAdapter = () => {
     if (url.includes('/crm-ai/tools')) {
       return {
         data: db.crmTools,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    if (url.includes('/crm-knowledge/documents/')) {
+      const docMatch = url.match(/\/crm-knowledge\/documents\/([^/]+)$/);
+      if (docMatch) {
+        const docId = docMatch[1];
+        const doc = db.knowledgeDocuments.find((d) => d.id === docId);
+        return {
+          data: doc,
+          status: doc ? 200 : 404,
+          statusText: doc ? 'OK' : 'Not Found',
+          headers: {},
+          config,
+        };
+      }
+    }
+
+    if (url.includes('/crm-knowledge/documents')) {
+      return {
+        data: db.knowledgeDocuments,
         status: 200,
         statusText: 'OK',
         headers: {},

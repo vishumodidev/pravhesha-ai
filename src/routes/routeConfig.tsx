@@ -21,6 +21,7 @@ import SchedulingPage from '../features/scheduling/pages/SchedulingPage';
 import AnalyticsPage from '../features/analytics/pages/AnalyticsPage';
 import NotificationsPage from '../features/notifications/pages/NotificationsPage';
 import UserManagementPage from '../features/settings/pages/UserManagementPage';
+import KnowledgeLibraryPage from '../features/knowledge-base/pages/KnowledgeLibraryPage';
 
 export const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ export const router = createBrowserRouter([
           {
             path: 'ai-platform',
             element: <AIPlatformPage />,
+          },
+          {
+            path: 'knowledge-base',
+            element: <KnowledgeLibraryPage />,
           },
           {
             path: 'leads',
