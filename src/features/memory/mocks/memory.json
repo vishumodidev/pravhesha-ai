@@ -1,0 +1,62 @@
+[
+  {
+    "id": "mem-lang",
+    "userId": "user-admin",
+    "category": "User Preference",
+    "key": "Preferred Language",
+    "value": "English",
+    "importance": 4,
+    "createdAt": "2026-07-08T09:00:00.000Z",
+    "updatedAt": "2026-07-08T09:00:00.000Z"
+  },
+  {
+    "id": "mem-llm",
+    "userId": "user-admin",
+    "category": "User Preference",
+    "key": "Preferred LLM",
+    "value": "OpenAI",
+    "importance": 5,
+    "createdAt": "2026-07-08T09:05:00.000Z",
+    "updatedAt": "2026-07-08T09:05:00.000Z"
+  },
+  {
+    "id": "mem-last-cust",
+    "userId": "user-admin",
+    "category": "Customer",
+    "key": "Last Customer",
+    "value": "ABC Pvt Ltd",
+    "importance": 3,
+    "createdAt": "2026-07-08T09:10:00.000Z",
+    "updatedAt": "2026-07-08T09:10:00.000Z"
+  },
+  {
+    "id": "mem-recent-lead",
+    "userId": "user-admin",
+    "category": "Lead",
+    "key": "Recent Lead",
+    "value": "Rahul Sharma",
+    "importance": 5,
+    "createdAt": "2026-07-08T09:15:00.000Z",
+    "updatedAt": "2026-07-08T09:15:00.000Z"
+  },
+  {
+    "id": "mem-counselor",
+    "userId": "user-admin",
+    "category": "User Preference",
+    "key": "Counselor Nickname",
+    "value": "Admin Manager",
+    "importance": 3,
+    "createdAt": "2026-07-08T09:20:00.000Z",
+    "updatedAt": "2026-07-08T09:20:00.000Z"
+  },
+  {
+    "id": "mem-course",
+    "userId": "user-admin",
+    "category": "CRM",
+    "key": "Default Course Target",
+    "value": "Data Science & AI",
+    "importance": 4,
+    "createdAt": "2026-07-08T09:25:00.000Z",
+    "updatedAt": "2026-07-08T09:25:00.000Z"
+  }
+]

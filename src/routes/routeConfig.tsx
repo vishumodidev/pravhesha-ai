@@ -22,6 +22,7 @@ import AnalyticsPage from '../features/analytics/pages/AnalyticsPage';
 import NotificationsPage from '../features/notifications/pages/NotificationsPage';
 import UserManagementPage from '../features/settings/pages/UserManagementPage';
 import KnowledgeLibraryPage from '../features/knowledge-base/pages/KnowledgeLibraryPage';
+import MemoryPage from '../features/memory/pages/MemoryPage';
 
 export const router = createBrowserRouter([
   {
@@ -69,6 +70,10 @@ export const router = createBrowserRouter([
           {
             path: 'knowledge-base',
             element: <KnowledgeLibraryPage />,
+          },
+          {
+            path: 'memory',
+            element: <MemoryPage />,
           },
           {
             path: 'leads',

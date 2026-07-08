@@ -40,6 +40,7 @@ export default function Sidebar({ openCopilot }: SidebarProps) {
     { id: 'ai-training', label: 'AI Training', icon: Brain, badge: 'New', path: '/dashboard/ai-training' },
     { id: 'ai-platform', label: 'AI Platform', icon: Sparkles, badge: 'New', path: '/dashboard/ai-platform' },
     { id: 'knowledge-base', label: 'Knowledge Base', icon: BookOpen, badge: 'New', path: '/dashboard/knowledge-base' },
+    { id: 'memory', label: 'AI Memory', icon: Brain, badge: 'New', path: '/dashboard/memory' },
     { id: 'leads', label: 'Leads', icon: UserCheck, path: '/dashboard/leads' },
     { id: 'pipeline', label: 'Sales Pipeline', icon: Kanban, badge: 'New', path: '/dashboard/pipeline' },
     { id: 'customers', label: 'Customers', icon: Users, badge: 'New', path: '/dashboard/customers' },

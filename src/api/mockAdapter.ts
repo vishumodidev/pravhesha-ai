@@ -32,6 +32,7 @@ import crmProvidersData from '../features/ai-platform/mocks/providers.json';
 import crmPromptsData from '../features/ai-platform/prompt-engine/mocks/prompts.json';
 import crmToolsData from '../features/ai-platform/tool-engine/mocks/tools.json';
 import knowledgeDocumentsData from '../features/knowledge-base/mocks/knowledge-documents.json';
+import crmMemoryData from '../features/memory/mocks/memory.json';
 
 // In-memory mock database
 const db = {
@@ -49,6 +50,7 @@ const db = {
   crmPrompts: [...crmPromptsData],
   crmTools: [...crmToolsData],
   knowledgeDocuments: [...knowledgeDocumentsData],
+  crmMemory: [...crmMemoryData],
   socialLeads: [...socialLeadsData],
   crmLeads: [...crmLeadsData],
   leadActivities: [...leadActivitiesData],
@@ -821,6 +823,53 @@ export const setupMockAdapter = () => {
     if (url.includes('/crm-knowledge/documents')) {
       return {
         data: db.knowledgeDocuments,
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config,
+      };
+    }
+
+    if (url.includes('/crm-memory') && method === 'delete') {
+      const memMatch = url.match(/\/crm-memory\/([^/]+)$/);
+      if (memMatch) {
+        const memId = memMatch[1];
+        db.crmMemory = db.crmMemory.filter((m: any) => m.id !== memId);
+        return {
+          data: { success: true },
+          status: 200,
+          statusText: 'OK',
+          headers: {},
+          config,
+        };
+      }
+    }
+
+    if (url.includes('/crm-memory') && method === 'post') {
+      const { key, value, category, importance } = JSON.parse(config.data || '{}');
+      const newMemory = {
+        id: `mem-${Date.now()}`,
+        userId: 'user-admin',
+        category,
+        key,
+        value,
+        importance: Number(importance || 3),
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString(),
+      };
+      db.crmMemory.push(newMemory);
+      return {
+        data: newMemory,
+        status: 201,
+        statusText: 'Created',
+        headers: {},
+        config,
+      };
+    }
+
+    if (url.includes('/crm-memory')) {
+      return {
+        data: db.crmMemory,
         status: 200,
         statusText: 'OK',
         headers: {},
