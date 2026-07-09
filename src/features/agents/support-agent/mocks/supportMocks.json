@@ -1,0 +1,147 @@
+[
+  {
+    "id": "scenario-refund",
+    "customer": {
+      "id": "cust-enterprise-1",
+      "name": "Acme Corp (Sarah Chen)",
+      "email": "schen@acme.com",
+      "phone": "+1-555-0199",
+      "company": "Acme Corp",
+      "plan": "Enterprise Plan",
+      "status": "Active",
+      "notes": "Premium enterprise account. Expects high compliance and strict SLA adherence."
+    },
+    "history": [
+      {
+        "id": "msg-refund-1",
+        "sender": "customer",
+        "text": "Hi support team, we canceled our additional seat subscriptions 10 days ago but were still charged $800 on our latest invoice. Can we get a refund for this amount immediately?",
+        "timestamp": "2026-07-09T10:00:00.000Z"
+      }
+    ],
+    "tickets": [
+      {
+        "id": "tick-refund-101",
+        "title": "Sarah Chen - Seat charge discrepancy",
+        "status": "Open",
+        "priority": "High",
+        "customerId": "cust-enterprise-1",
+        "createdAt": "2026-07-09T10:05:00.000Z",
+        "updatedAt": "2026-07-09T10:05:00.000Z"
+      }
+    ],
+    "agentThoughts": [
+      "Step 1: Check customer account profile. Customer Sarah Chen is on the Enterprise Plan. Support SLA requires response in 2 hours.",
+      "Step 2: Scan Knowledge Base for cancellation and refund policies. Policies document kb-policy-1 state: full refund available within 30 days of purchase.",
+      "Step 3: Scan Support SOP for billing adjustments. SOP kb-sop-2 dictates that refund discrepancies exceeding $500 must be escalated to the Tier 2 Billing queue.",
+      "Step 4: Execute GetTickets tool. Found 1 open ticket relating to seat charge discrepancy.",
+      "Step 5: Draft reply email explaining that we are escalating to Billing Tier 2 for immediate approval, and suggest escalation action."
+    ],
+    "suggestedReply": "Dear Sarah Chen,\n\nThank you for contacting Pravesha AI Support. I understand you canceled seats 10 days ago and were still charged $800 on your recent invoice.\n\nSince your query involves a refund discrepancy exceeding $500, according to our Support Policies, I am escalating this ticket immediately to our Tier 2 Billing and Accounts queue for expedited processing. An account representative will review the transaction and issue the refund. As an Enterprise Plan customer, this has been marked as High priority.\n\nWe apologize for this billing oversight. You will receive an update shortly.\n\nBest regards,\nPravesha AI Support Team Team",
+    "suggestedActions": [
+      {
+        "type": "Escalate Ticket",
+        "title": "Escalate to Billing Tier 2 Queue",
+        "description": "Mark ticket #tick-refund-101 as Urgent and transfer ownership to Accounts Auditor assistant.",
+        "payload": {
+          "ticketId": "tick-refund-101",
+          "queue": "Billing Tier 2",
+          "priority": "Urgent"
+        }
+      }
+    ]
+  },
+  {
+    "id": "scenario-sync-error",
+    "customer": {
+      "id": "cust-standard-2",
+      "name": "Innovate LLC (David Miller)",
+      "email": "dmiller@innovate.co",
+      "phone": "+1-555-0245",
+      "company": "Innovate LLC",
+      "plan": "Standard Plan",
+      "status": "Active",
+      "notes": "Developer representative integrating CRM pipelines."
+    },
+    "history": [
+      {
+        "id": "msg-sync-1",
+        "sender": "customer",
+        "text": "Hello, our lead flows stopped syncing since yesterday morning. The sync console shows a connection failure code. Can you look at our setup?",
+        "timestamp": "2026-07-09T09:15:00.000Z"
+      }
+    ],
+    "tickets": [
+      {
+        "id": "tick-sync-202",
+        "title": "David Miller - Lead sync failure console error",
+        "status": "In Progress",
+        "priority": "Medium",
+        "customerId": "cust-standard-2",
+        "createdAt": "2026-07-09T09:20:00.000Z",
+        "updatedAt": "2026-07-09T09:20:00.000Z"
+      }
+    ],
+    "agentThoughts": [
+      "Step 1: Check customer account profile. Customer is David Miller of Innovate LLC, on the Standard Plan. SLA window is 12 hours.",
+      "Step 2: Execute GetCommunications tool to review recent history. Found OAuth credentials discussion 3 days ago.",
+      "Step 3: Query Knowledge Base for 'connection failure sync'. Match found in kb-guide-1: CRM API Connection Sync Troubleshooting Guide.",
+      "Step 4: Guide lists expiring OAuth tokens as the most common issue. Customer should check Settings > Integrations dashboard.",
+      "Step 5: Formulate troubleshooting reply citing Guide steps, and recommend updating the ticket status."
+    ],
+    "suggestedReply": "Dear David Miller,\n\nI understand your lead sync has stopped working and is showing a connection failure code. Let's get this resolved.\n\nBased on our Troubleshooting Guides, this error typically occurs when your CRM Integration OAuth Token expires. Please complete these steps:\n1. Log in to your Pravesha AI dashboard.\n2. Navigate to Settings > Integrations.\n3. Click 'Re-authenticate' next to your CRM pipeline to refresh the token.\n\nIf you still see errors, please check your developer log files under Settings > Developer Logs. Let us know if you need further help!\n\nBest regards,\nPravesha AI Support Team Team",
+    "suggestedActions": [
+      {
+        "type": "Update Ticket",
+        "title": "Resolve Sync Issue Ticket",
+        "description": "Update ticket #tick-sync-202 status to Pending Customer input.",
+        "payload": {
+          "ticketId": "tick-sync-202",
+          "status": "In Progress",
+          "notes": "Sent OAuth re-authentication troubleshooting instructions."
+        }
+      }
+    ]
+  },
+  {
+    "id": "scenario-upgrade",
+    "customer": {
+      "id": "cust-basic-3",
+      "name": "SoloTech (Gail Vance)",
+      "email": "gvance@solotech.net",
+      "phone": "+1-555-0812",
+      "company": "SoloTech",
+      "plan": "Basic Plan",
+      "status": "Active",
+      "notes": "Single operator account. Interested in expanding limits."
+    },
+    "history": [
+      {
+        "id": "msg-upgrade-1",
+        "sender": "customer",
+        "text": "Hi, we are hitting the limit on custom fields. Can you tell us how to add more custom fields to our leads profile dashboard?",
+        "timestamp": "2026-07-09T11:10:00.000Z"
+      }
+    ],
+    "tickets": [],
+    "agentThoughts": [
+      "Step 1: Check customer account. Customer is Gail Vance of SoloTech on the Basic Plan. Basic plan limits custom fields to 5.",
+      "Step 2: Search Knowledge Base for custom fields. kb-doc-1 documentation outlines custom field mapping.",
+      "Step 3: Basic plan holds a hard limit. To create more fields, customer needs to upgrade to the Standard Plan.",
+      "Step 4: Draft reply explaining the limit and how to upgrade, and suggest creating a tracking ticket for the sales follow-up."
+    ],
+    "suggestedReply": "Dear Gail Vance,\n\nThank you for reaching out to support. \n\nUnder your current Basic Plan subscription, there is a limit of 5 custom fields. To create additional custom fields, you will need to upgrade to our Standard or Enterprise subscription plans, which offer unlimited custom field mapping.\n\nYou can easily upgrade your account by visiting Settings > Billing in your dashboard. \n\nI've created a follow-up ticket for our accounts team to see if they can assist you with the upgrade options.\n\nBest regards,\nPravesha AI Support Team Team",
+    "suggestedActions": [
+      {
+        "type": "Create Ticket",
+        "title": "Create Sales Upgrade Opportunity Ticket",
+        "description": "Generate task ticket for Sales account manager to pitch plan upgrade.",
+        "payload": {
+          "title": "SoloTech - Gail Vance: Custom Field Upgrade Pitch",
+          "priority": "Medium",
+          "customerId": "cust-basic-3"
+        }
+      }
+    ]
+  }
+]

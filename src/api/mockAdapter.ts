@@ -36,6 +36,13 @@ import crmMemoryData from '../features/memory/mocks/memory.json';
 import crmAgentsData from '../features/ai-agents/mocks/agents.json';
 import agentExecutionsData from '../features/multi-agent/mocks/agent-executions.json';
 import mcpServersData from '../features/mcp/mocks/servers.json';
+import automationsData from '../features/automation/mocks/automations.json';
+import templatesData from '../features/automation/mocks/templates.json';
+import nodesPaletteData from '../features/automation/mocks/nodes.json';
+import { AutomationValidator } from '../features/automation/validation/AutomationValidator';
+import supportMocksData from '../features/agents/support-agent/mocks/supportMocks.json';
+import { supportKnowledge } from '../features/agents/support-agent/knowledge/supportKnowledge';
+import whatsappMocksData from '../features/whatsapp-agent/mocks/whatsappMocks.json';
 
 // In-memory mock database
 const db = {
@@ -90,7 +97,12 @@ const db = {
       cancelled: '2',
       noShow: '0'
     }
-  }
+  },
+  automations: [...automationsData],
+  templates: [...templatesData],
+  nodesPalette: [...nodesPaletteData],
+  supportMocks: [...supportMocksData],
+  whatsappMocks: [...whatsappMocksData]
 };
 
 // Helper to delay response for realistic feel (300-800ms)
@@ -1553,6 +1565,205 @@ export const setupMockAdapter = () => {
         headers: {},
         config,
       };
+    }
+
+    // 13. CRM Automation Studio Endpoints
+    if (url.includes('/crm-automation/automations')) {
+      const parts = url.split('/crm-automation/automations/');
+      const id = parts[1] ? parts[1].split('?')[0] : null;
+
+      if (id) {
+        if (method === 'get') {
+          const item = db.automations.find((a: any) => a.id === id);
+          if (!item) {
+            const tpl = db.templates.find((t: any) => t.id === id);
+            if (tpl) {
+              return { data: tpl, status: 200, statusText: 'OK', headers: {}, config };
+            }
+            return { data: { message: 'Not found' }, status: 404, statusText: 'Not Found', headers: {}, config };
+          }
+          return { data: item, status: 200, statusText: 'OK', headers: {}, config };
+        }
+        if (method === 'put' || method === 'post') {
+          db.automations = db.automations.map((a: any) => a.id === id ? { ...a, ...data, updatedAt: new Date().toISOString() } : a);
+          const updated = db.automations.find((a: any) => a.id === id);
+          return { data: updated, status: 200, statusText: 'OK', headers: {}, config };
+        }
+        if (method === 'delete') {
+          db.automations = db.automations.filter((a: any) => a.id !== id);
+          return { data: { success: true }, status: 200, statusText: 'OK', headers: {}, config };
+        }
+      } else {
+        if (method === 'get') {
+          return { data: db.automations, status: 200, statusText: 'OK', headers: {}, config };
+        }
+        if (method === 'post') {
+          const newFlow = {
+            id: `auto-${Date.now()}`,
+            name: data.name || 'Untitled Automation',
+            description: data.description || '',
+            status: data.status || 'draft',
+            trigger: data.trigger || 'Lead Created',
+            nodes: data.nodes || [],
+            connections: data.connections || [],
+            createdBy: 'Admin User',
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString()
+          };
+          db.automations.push(newFlow);
+          return { data: newFlow, status: 201, statusText: 'Created', headers: {}, config };
+        }
+      }
+    }
+
+    if (url.includes('/crm-automation/templates')) {
+      if (method === 'get') {
+        return { data: db.templates, status: 200, statusText: 'OK', headers: {}, config };
+      }
+    }
+
+    if (url.includes('/crm-automation/validate')) {
+      if (method === 'post') {
+        const errors = AutomationValidator.validate(data);
+        return { data: errors, status: 200, statusText: 'OK', headers: {}, config };
+      }
+    }
+
+    // 14. CRM Customer Support AI Agent Endpoints
+    if (url.includes('/crm-agents/support/answer')) {
+      const found = db.supportMocks.find((s: any) => s.customer.id === data.customerId);
+      if (found) {
+        return {
+          data: {
+            response: found.suggestedReply,
+            thoughts: found.agentThoughts
+          },
+          status: 200,
+          statusText: 'OK',
+          headers: {},
+          config
+        };
+      }
+      return {
+        data: {
+          response: `I've analyzed the query: "${data.query}". I recommend researching the troubleshooting documentation or creating a support ticket.`,
+          thoughts: ['Step 1: Check query.', 'Step 2: No mock customer profile scenario found. Returning general template.']
+        },
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config
+      };
+    }
+
+    if (url.includes('/crm-agents/support/knowledge/search')) {
+      const results = supportKnowledge.search(data.query, data.sources);
+      return { data: results, status: 200, statusText: 'OK', headers: {}, config };
+    }
+
+    if (url.includes('/crm-agents/support/tickets')) {
+      const newTicket = {
+        id: `tick-${Date.now()}`,
+        title: data.title || 'Support Ticket',
+        status: 'Open' as const,
+        priority: data.priority || 'Medium',
+        customerId: data.customerId,
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      };
+      return { data: newTicket, status: 201, statusText: 'Created', headers: {}, config };
+    }
+
+    if (url.includes('/crm-agents/support/customer/')) {
+      const parts = url.split('/crm-agents/support/customer/');
+      const customerId = parts[1] ? parts[1].split('/')[0] : '';
+      const found = db.supportMocks.find((s: any) => s.customer.id === customerId);
+      if (found) {
+        const summary = `${found.customer.name} (${found.customer.plan}) reported: "${found.history[0]?.text || ''}".`;
+        return { data: summary, status: 200, statusText: 'OK', headers: {}, config };
+      }
+      return { data: 'Customer profile validated with standard standings.', status: 200, statusText: 'OK', headers: {}, config };
+    }
+
+    if (url.includes('/crm-agents/support/reply')) {
+      const responseDraft = `Dear Customer,\n\nWe have updated your ticket status with the following details:\n\n${data.context}\n\nThank you,\nPravesha AI Support Team Team`;
+      return { data: responseDraft, status: 200, statusText: 'OK', headers: {}, config };
+    }
+
+    // 15. CRM WhatsApp AI Agent Endpoints
+    if (url.includes('/crm-whatsapp/agent/receive')) {
+      const found = db.whatsappMocks.find((s: any) => s.phone === data.phone);
+      if (found) {
+        return {
+          data: {
+            response: found.suggestedReply,
+            thoughts: found.agentThoughts
+          },
+          status: 200,
+          statusText: 'OK',
+          headers: {},
+          config
+        };
+      }
+      return {
+        data: {
+          response: `Thanks for messaging Palmyra AI. I've logged your request: "${data.message}". A support executive will get back to you shortly.`,
+          thoughts: ['Step 1: Parse incoming phone.', 'Step 2: No mock profile found. Generating generic auto-reply.']
+        },
+        status: 200,
+        statusText: 'OK',
+        headers: {},
+        config
+      };
+    }
+
+    if (url.includes('/crm-whatsapp/agent/send')) {
+      const newMsg = {
+        id: `msg-sent-${Date.now()}`,
+        phone: data.phone,
+        name: 'Pravesha AI Agent',
+        message: data.text,
+        direction: 'outbound' as const,
+        timestamp: new Date().toISOString(),
+        status: 'delivered' as const
+      };
+      return { data: newMsg, status: 200, statusText: 'OK', headers: {}, config };
+    }
+
+    if (url.includes('/crm-whatsapp/agent/conversations/')) {
+      const parts = url.split('/crm-whatsapp/agent/conversations/');
+      const convId = parts[1] ? parts[1].split('?')[0] : '';
+      const found = (db.whatsappMocks as any[]).find((s: any) => s.conversationId === convId);
+      if (found) {
+        const conversationDetails = {
+          conversationId: found.conversationId,
+          phone: found.phone,
+          name: found.name,
+          customerId: found.customer?.id,
+          leadId: found.lead?.id,
+          messages: found.messages,
+          lastMessage: found.lastMessage,
+          status: found.status,
+          updatedAt: found.updatedAt
+        };
+        return { data: conversationDetails, status: 200, statusText: 'OK', headers: {}, config };
+      }
+      return { data: { message: 'Not found' }, status: 404, statusText: 'Not Found', headers: {}, config };
+    }
+
+    if (url.includes('/crm-whatsapp/agent/conversations')) {
+      const conversationList = (db.whatsappMocks as any[]).map((s: any) => ({
+        conversationId: s.conversationId,
+        phone: s.phone,
+        name: s.name,
+        customerId: s.customer?.id,
+        leadId: s.lead?.id,
+        messages: s.messages,
+        lastMessage: s.lastMessage,
+        status: s.status,
+        updatedAt: s.updatedAt
+      }));
+      return { data: conversationList, status: 200, statusText: 'OK', headers: {}, config };
     }
 
     // Fallback to real endpoint

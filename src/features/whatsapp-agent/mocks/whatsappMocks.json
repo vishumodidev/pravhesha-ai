@@ -1,0 +1,159 @@
+[
+  {
+    "conversationId": "conv-sales-101",
+    "phone": "+1-555-0888",
+    "name": "Marcus Aurelius",
+    "status": "active",
+    "updatedAt": "2026-07-09T14:30:00.000Z",
+    "lastMessage": "How much does the Standard plan cost for a team of 5?",
+    "messages": [
+      {
+        "id": "msg-s1",
+        "phone": "+1-555-0888",
+        "name": "Marcus Aurelius",
+        "message": "Hi, I am looking to automate our lead distribution. Do you have a WhatsApp CRM solution?",
+        "direction": "inbound",
+        "timestamp": "2026-07-09T14:15:00.000Z",
+        "status": "received"
+      },
+      {
+        "id": "msg-s2",
+        "phone": "+1-555-0888",
+        "name": "Pravesha AI Agent",
+        "message": "Hello Marcus! Yes, Pravesha AI includes a complete WhatsApp AI Agent integrated directly with our CRM to automate lead routing, task assignment, and customer inquiries. May I ask what business you represent?",
+        "direction": "outbound",
+        "timestamp": "2026-07-09T14:17:00.000Z",
+        "status": "read",
+        "thoughts": "Step 1: Greet Marcus and confirm WhatsApp AI Agent functionality.\nStep 2: Ask for business name to begin lead qualification process."
+      },
+      {
+        "id": "msg-s3",
+        "phone": "+1-555-0888",
+        "name": "Marcus Aurelius",
+        "message": "I run Rome Logistics. We have 5 sales reps. How much does the Standard plan cost?",
+        "direction": "inbound",
+        "timestamp": "2026-07-09T14:30:00.000Z",
+        "status": "received"
+      }
+    ],
+    "lead": null,
+    "customer": null,
+    "agentThoughts": [
+      "Step 1: Check if phone +1-555-0888 is an existing Customer or Lead. GetLead returned null. GetCustomer returned null. This is a NEW PROSPECT.",
+      "Step 2: Marcus provided company name: Rome Logistics, and team size: 5 sales reps. Budget is likely Standard plan ($99/mo).",
+      "Step 3: Run RAG search for pricing standard plan. Match found in kb-pricing-1: $99/mo, includes 3 active agents, 2,000 sessions.",
+      "Step 4: Execute CreateLead tool to register Marcus Aurelius under Rome Logistics.",
+      "Step 5: Formulate sales reply explaining pricing and suggesting lead generation."
+    ],
+    "suggestedReply": "The Standard Plan is $99/month and includes unlimited custom fields, 3 active AI Agents, and 2,000 WhatsApp sessions—perfect for a team of 5 reps! \n\nI have registered your details in our CRM. Would you like to schedule a quick 10-minute demo to see how we route leads automatically?",
+    "suggestedActions": [
+      {
+        "type": "Create Lead",
+        "title": "Create Lead profile for Marcus",
+        "description": "Create a CRM Lead for Marcus Aurelius representing Rome Logistics.",
+        "payload": {
+          "name": "Marcus Aurelius",
+          "phone": "+1-555-0888",
+          "company": "Rome Logistics",
+          "budget": "$99/mo"
+        }
+      }
+    ]
+  },
+  {
+    "id": "conv-support-202",
+    "conversationId": "conv-support-202",
+    "phone": "+1-555-0442",
+    "name": "Zenobia Pal",
+    "status": "active",
+    "updatedAt": "2026-07-09T15:10:00.000Z",
+    "lastMessage": "We are getting connection failed error on API logs.",
+    "messages": [
+      {
+        "id": "msg-su1",
+        "phone": "+1-555-0442",
+        "name": "Zenobia Pal",
+        "message": "Hi, our CRM API is showing connection failed error codes in sync logs. Can you check?",
+        "direction": "inbound",
+        "timestamp": "2026-07-09T15:10:00.000Z",
+        "status": "received"
+      }
+    ],
+    "customer": {
+      "id": "cust-palmyra-1",
+      "name": "Zenobia Pal",
+      "phone": "+1-555-0442",
+      "company": "Palmyra Trade",
+      "plan": "Standard Plan",
+      "status": "Active"
+    },
+    "lead": null,
+    "agentThoughts": [
+      "Step 1: Check caller phone +1-555-0442. Matches Customer Zenobia Pal of Palmyra Trade on Standard Plan.",
+      "Step 2: Search Knowledge Base for 'connection failed api sync error'. Match found in kb-guide-1: OAuth token renewal settings.",
+      "Step 3: Draft guide step instructions (re-authenticate in Settings > Integrations).",
+      "Step 4: Suggest creating a follow-up task ticket in the CRM to log the incident."
+    ],
+    "suggestedReply": "Hello Zenobia. I found your account details. This connection failed error usually occurs when the API OAuth sync token expires.\n\nYou can refresh this token easily in your dashboard:\n1. Go to Settings > Integrations.\n2. Click 'Re-authenticate' next to your CRM data source.\n\nLet me know if this refreshes the connection!",
+    "suggestedActions": [
+      {
+        "type": "Create Task",
+        "title": "Log API Sync Error Incident",
+        "description": "Create a CRM developer task to monitor Zenobia Pal's API connection status.",
+        "payload": {
+          "title": "Monitor Palmyra Trade API Sync",
+          "priority": "Medium",
+          "assignedTo": "Developer Team",
+          "dueDate": "2026-07-10T12:00:00.000Z"
+        }
+      }
+    ]
+  },
+  {
+    "id": "conv-escalate-303",
+    "conversationId": "conv-escalate-303",
+    "phone": "+1-555-0991",
+    "name": "Cleopatra Ptolemy",
+    "status": "pending_human",
+    "updatedAt": "2026-07-09T16:00:00.000Z",
+    "lastMessage": "I want a refund for the chargeback discrepancy of $1200 immediately.",
+    "messages": [
+      {
+        "id": "msg-e1",
+        "phone": "+1-555-0991",
+        "name": "Cleopatra Ptolemy",
+        "message": "I canceled the subscription 2 weeks ago and still got charged $1200. I want a refund issued immediately or I will contact my bank.",
+        "direction": "inbound",
+        "timestamp": "2026-07-09T16:00:00.000Z",
+        "status": "received"
+      }
+    ],
+    "customer": {
+      "id": "cust-alex-2",
+      "name": "Cleopatra Ptolemy",
+      "phone": "+1-555-0991",
+      "company": "Alexandria Inc",
+      "plan": "Enterprise Plan",
+      "status": "Active"
+    },
+    "lead": null,
+    "agentThoughts": [
+      "Step 1: Check database. Customer is Cleopatra Ptolemy, Enterprise plan subscriber.",
+      "Step 2: User requests a refund of $1200 due to cancellation issues. Financial dispute exceeds the $500 support rep limit.",
+      "Step 3: Support SOP kb-sop-2 dictates that disputes exceeding $500 must be routed directly to human billing managers.",
+      "Step 4: AI response must offer empathy, explain the escalation, and trigger Human Handoff immediately."
+    ],
+    "suggestedReply": "Dear Cleopatra, I understand you canceled your subscription and were still billed $1200. Since this refund request exceeds automated limits, I have escalated this conversation to a Billing Manager for immediate manual review. A human agent will take over this chat to assist you directly.",
+    "suggestedActions": [
+      {
+        "type": "Escalate to Human",
+        "title": "Handoff to Billing Manager",
+        "description": "Mark conversation status as Pending Human and alert the billing representative queue.",
+        "payload": {
+          "conversationId": "conv-escalate-303",
+          "queue": "Billing Manager Queue"
+        }
+      }
+    ]
+  }
+]

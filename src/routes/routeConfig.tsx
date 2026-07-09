@@ -25,6 +25,9 @@ import KnowledgeLibraryPage from '../features/knowledge-base/pages/KnowledgeLibr
 import MemoryPage from '../features/memory/pages/MemoryPage';
 import AgentOrchestratorPage from '../features/multi-agent/components/AgentOrchestratorPage';
 import MCPDashboard from '../features/mcp/pages/MCPDashboard';
+import AutomationStudioPage from '../features/automation/components/AutomationStudioPage';
+import SupportAgentPage from '../features/agents/support-agent/components/SupportAgentPage';
+import WhatsAppAgentPage from '../features/whatsapp-agent/components/WhatsAppAgentPage';
 
 export const router = createBrowserRouter([
   {
@@ -84,6 +87,18 @@ export const router = createBrowserRouter([
           {
             path: 'mcp',
             element: <MCPDashboard />,
+          },
+          {
+            path: 'automation',
+            element: <AutomationStudioPage />,
+          },
+          {
+            path: 'support-agent',
+            element: <SupportAgentPage />,
+          },
+          {
+            path: 'whatsapp-agent',
+            element: <WhatsAppAgentPage />,
           },
           {
             path: 'leads',

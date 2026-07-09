@@ -1,0 +1,429 @@
+[
+  {
+    "id": "tpl-new-lead",
+    "name": "New Lead Automation",
+    "description": "Qualify new leads using Gemini AI, branch by budget/value, and assign sales representatives automatically.",
+    "status": "draft",
+    "trigger": "Lead Created",
+    "nodes": [
+      {
+        "id": "node-lead-created",
+        "type": "Trigger",
+        "name": "Lead Created",
+        "position": { "x": 50, "y": 200 },
+        "inputs": [],
+        "outputs": ["Output"],
+        "configuration": {
+          "triggerType": "Lead Created"
+        }
+      },
+      {
+        "id": "node-ai-qualify",
+        "type": "AI",
+        "name": "AI Qualify Lead",
+        "position": { "x": 300, "y": 200 },
+        "inputs": ["Input"],
+        "outputs": ["Output"],
+        "configuration": {
+          "aiPrompt": "Evaluate the lead details, domain size, and budget. Classify as High-Value or Standard.",
+          "aiModel": "gemini-1.5-pro"
+        }
+      },
+      {
+        "id": "node-check-value",
+        "type": "Condition",
+        "name": "Is High Value?",
+        "position": { "x": 550, "y": 200 },
+        "inputs": ["Input"],
+        "outputs": ["Yes", "No"],
+        "configuration": {
+          "conditionExpression": "lead.score > 80 || lead.budget > 10000"
+        }
+      },
+      {
+        "id": "node-assign-sales",
+        "type": "Action",
+        "name": "Assign Sales Executive",
+        "position": { "x": 800, "y": 100 },
+        "inputs": ["Input"],
+        "outputs": ["Output"],
+        "configuration": {
+          "actionType": "Assign User",
+          "assigneeId": "sales-lead-jack"
+        }
+      },
+      {
+        "id": "node-notify-admin",
+        "type": "Notification",
+        "name": "Notify Sales Channel",
+        "position": { "x": 1050, "y": 100 },
+        "inputs": ["Input"],
+        "outputs": ["Output"],
+        "configuration": {
+          "actionType": "Notify User",
+          "notificationMessage": "New High-Value Lead assignment: {{lead.name}}"
+        }
+      },
+      {
+        "id": "node-nurture-email",
+        "type": "Action",
+        "name": "Send Nurturing Email",
+        "position": { "x": 800, "y": 320 },
+        "inputs": ["Input"],
+        "outputs": ["Output"],
+        "configuration": {
+          "actionType": "Send Email",
+          "emailTemplate": "Standard Lead Welcome Series"
+        }
+      }
+    ],
+    "connections": [
+      {
+        "id": "conn-1",
+        "sourceNodeId": "node-lead-created",
+        "targetNodeId": "node-ai-qualify",
+        "sourceOutputPort": "Output",
+        "targetInputPort": "Input"
+      },
+      {
+        "id": "conn-2",
+        "sourceNodeId": "node-ai-qualify",
+        "targetNodeId": "node-check-value",
+        "sourceOutputPort": "Output",
+        "targetInputPort": "Input"
+      },
+      {
+        "id": "conn-3",
+        "sourceNodeId": "node-check-value",
+        "targetNodeId": "node-assign-sales",
+        "sourceOutputPort": "Yes",
+        "targetInputPort": "Input"
+      },
+      {
+        "id": "conn-4",
+        "sourceNodeId": "node-assign-sales",
+        "targetNodeId": "node-notify-admin",
+        "sourceOutputPort": "Output",
+        "targetInputPort": "Input"
+      },
+      {
+        "id": "conn-5",
+        "sourceNodeId": "node-check-value",
+        "targetNodeId": "node-nurture-email",
+        "sourceOutputPort": "No",
+        "targetInputPort": "Input"
+      }
+    ],
+    "createdBy": "System Admin",
+    "createdAt": "2026-07-01T12:00:00Z",
+    "updatedAt": "2026-07-01T12:00:00Z"
+  },
+  {
+    "id": "tpl-welcome-customer",
+    "name": "Welcome Customer",
+    "description": "Triggered when a new customer profile is activated. Sends a greeting email, waits, and reaches out on WhatsApp.",
+    "status": "draft",
+    "trigger": "Customer Created",
+    "nodes": [
+      {
+        "id": "node-cust-created",
+        "type": "Trigger",
+        "name": "Customer Created",
+        "position": { "x": 100, "y": 200 },
+        "inputs": [],
+        "outputs": ["Output"],
+        "configuration": {
+          "triggerType": "Customer Created"
+        }
+      },
+      {
+        "id": "node-welcome-email",
+        "type": "Action",
+        "name": "Send Welcome Email",
+        "position": { "x": 350, "y": 200 },
+        "inputs": ["Input"],
+        "outputs": ["Output"],
+        "configuration": {
+          "actionType": "Send Email",
+          "emailTemplate": "Customer Welcome Kit"
+        }
+      },
+      {
+        "id": "node-delay-2d",
+        "type": "Delay",
+        "name": "Wait 2 Days",
+        "position": { "x": 600, "y": 200 },
+        "inputs": ["Input"],
+        "outputs": ["Output"],
+        "configuration": {
+          "delayDuration": 2,
+          "delayUnit": "days"
+        }
+      },
+      {
+        "id": "node-whatsapp-hello",
+        "type": "Action",
+        "name": "WhatsApp Check-in",
+        "position": { "x": 850, "y": 200 },
+        "inputs": ["Input"],
+        "outputs": ["Output"],
+        "configuration": {
+          "actionType": "Send WhatsApp",
+          "whatsappTemplate": "post_onboard_followup"
+        }
+      }
+    ],
+    "connections": [
+      {
+        "id": "conn-w1",
+        "sourceNodeId": "node-cust-created",
+        "targetNodeId": "node-welcome-email",
+        "sourceOutputPort": "Output",
+        "targetInputPort": "Input"
+      },
+      {
+        "id": "conn-w2",
+        "sourceNodeId": "node-welcome-email",
+        "targetNodeId": "node-delay-2d",
+        "sourceOutputPort": "Output",
+        "targetInputPort": "Input"
+      },
+      {
+        "id": "conn-w3",
+        "sourceNodeId": "node-delay-2d",
+        "targetNodeId": "node-whatsapp-hello",
+        "sourceOutputPort": "Output",
+        "targetInputPort": "Input"
+      }
+    ],
+    "createdBy": "System Admin",
+    "createdAt": "2026-07-02T10:00:00Z",
+    "updatedAt": "2026-07-02T10:00:00Z"
+  },
+  {
+    "id": "tpl-followup-reminder",
+    "name": "Follow-up Reminder",
+    "description": "Monitors tasks due soon, checks if they are completed, and emails a reminder.",
+    "status": "draft",
+    "trigger": "Task Due",
+    "nodes": [
+      {
+        "id": "node-task-due",
+        "type": "Trigger",
+        "name": "Task Due Warning",
+        "position": { "x": 100, "y": 200 },
+        "inputs": [],
+        "outputs": ["Output"],
+        "configuration": {
+          "triggerType": "Task Due"
+        }
+      },
+      {
+        "id": "node-check-completed",
+        "type": "Condition",
+        "name": "Is Completed?",
+        "position": { "x": 350, "y": 200 },
+        "inputs": ["Input"],
+        "outputs": ["Yes", "No"],
+        "configuration": {
+          "conditionExpression": "task.status === 'Completed'"
+        }
+      },
+      {
+        "id": "node-send-reminder",
+        "type": "Action",
+        "name": "Email Follow-up",
+        "position": { "x": 600, "y": 300 },
+        "inputs": ["Input"],
+        "outputs": ["Output"],
+        "configuration": {
+          "actionType": "Send Email",
+          "emailTemplate": "Task Followup Urgencies"
+        }
+      }
+    ],
+    "connections": [
+      {
+        "id": "conn-f1",
+        "sourceNodeId": "node-task-due",
+        "targetNodeId": "node-check-completed",
+        "sourceOutputPort": "Output",
+        "targetInputPort": "Input"
+      },
+      {
+        "id": "conn-f2",
+        "sourceNodeId": "node-check-completed",
+        "targetNodeId": "node-send-reminder",
+        "sourceOutputPort": "No",
+        "targetInputPort": "Input"
+      }
+    ],
+    "createdBy": "Operations Lead",
+    "createdAt": "2026-07-03T09:15:00Z",
+    "updatedAt": "2026-07-03T09:15:00Z"
+  },
+  {
+    "id": "tpl-task-escalation",
+    "name": "Task Escalation",
+    "description": "Waits 24 hours after a task is due. If it is still pending, escalates the ownership and alerts a manager.",
+    "status": "draft",
+    "trigger": "Task Due",
+    "nodes": [
+      {
+        "id": "node-esc-due",
+        "type": "Trigger",
+        "name": "Task Due Alert",
+        "position": { "x": 50, "y": 200 },
+        "inputs": [],
+        "outputs": ["Output"],
+        "configuration": {
+          "triggerType": "Task Due"
+        }
+      },
+      {
+        "id": "node-esc-wait",
+        "type": "Delay",
+        "name": "Wait 24 Hours",
+        "position": { "x": 300, "y": 200 },
+        "inputs": ["Input"],
+        "outputs": ["Output"],
+        "configuration": {
+          "delayDuration": 24,
+          "delayUnit": "hours"
+        }
+      },
+      {
+        "id": "node-esc-check",
+        "type": "Condition",
+        "name": "Still Pending?",
+        "position": { "x": 550, "y": 200 },
+        "inputs": ["Input"],
+        "outputs": ["Yes", "No"],
+        "configuration": {
+          "conditionExpression": "task.status !== 'Completed'"
+        }
+      },
+      {
+        "id": "node-esc-assign",
+        "type": "Action",
+        "name": "Escalate to Manager",
+        "position": { "x": 800, "y": 100 },
+        "inputs": ["Input"],
+        "outputs": ["Output"],
+        "configuration": {
+          "actionType": "Assign User",
+          "assigneeId": "manager-sarah"
+        }
+      },
+      {
+        "id": "node-esc-notify",
+        "type": "Notification",
+        "name": "Alert Manager",
+        "position": { "x": 1050, "y": 100 },
+        "inputs": ["Input"],
+        "outputs": ["Output"],
+        "configuration": {
+          "actionType": "Notify User",
+          "notificationMessage": "ALERT: Task Escalated. ID: {{task.id}} is overdue by 24h."
+        }
+      }
+    ],
+    "connections": [
+      {
+        "id": "conn-e1",
+        "sourceNodeId": "node-esc-due",
+        "targetNodeId": "node-esc-wait",
+        "sourceOutputPort": "Output",
+        "targetInputPort": "Input"
+      },
+      {
+        "id": "conn-e2",
+        "sourceNodeId": "node-esc-wait",
+        "targetNodeId": "node-esc-check",
+        "sourceOutputPort": "Output",
+        "targetInputPort": "Input"
+      },
+      {
+        "id": "conn-e3",
+        "sourceNodeId": "node-esc-check",
+        "targetNodeId": "node-esc-assign",
+        "sourceOutputPort": "Yes",
+        "targetInputPort": "Input"
+      },
+      {
+        "id": "conn-e4",
+        "sourceNodeId": "node-esc-assign",
+        "targetNodeId": "node-esc-notify",
+        "sourceOutputPort": "Output",
+        "targetInputPort": "Input"
+      }
+    ],
+    "createdBy": "Operations Lead",
+    "createdAt": "2026-07-04T15:30:00Z",
+    "updatedAt": "2026-07-04T15:30:00Z"
+  },
+  {
+    "id": "tpl-sales-summary",
+    "name": "Daily Sales Summary",
+    "description": "Runs daily schedule to digest and generate CRM performance metrics using AI, sending an email report to the sales team.",
+    "status": "draft",
+    "trigger": "Schedule",
+    "nodes": [
+      {
+        "id": "node-sum-schedule",
+        "type": "Trigger",
+        "name": "Daily at 8:00 AM",
+        "position": { "x": 100, "y": 200 },
+        "inputs": [],
+        "outputs": ["Output"],
+        "configuration": {
+          "triggerType": "Schedule",
+          "cronExpression": "0 8 * * *"
+        }
+      },
+      {
+        "id": "node-sum-ai",
+        "type": "AI",
+        "name": "Compile KPI Summary",
+        "position": { "x": 350, "y": 200 },
+        "inputs": ["Input"],
+        "outputs": ["Output"],
+        "configuration": {
+          "aiPrompt": "Aggregate total sales revenue, new leads acquired, and calls completed over the last 24 hours. Format as a clean markdown report.",
+          "aiModel": "gemini-1.5-flash"
+        }
+      },
+      {
+        "id": "node-sum-email",
+        "type": "Action",
+        "name": "Email Sales Channel",
+        "position": { "x": 600, "y": 200 },
+        "inputs": ["Input"],
+        "outputs": ["Output"],
+        "configuration": {
+          "actionType": "Send Email",
+          "emailTemplate": "Daily Executive Summary"
+        }
+      }
+    ],
+    "connections": [
+      {
+        "id": "conn-s1",
+        "sourceNodeId": "node-sum-schedule",
+        "targetNodeId": "node-sum-ai",
+        "sourceOutputPort": "Output",
+        "targetInputPort": "Input"
+      },
+      {
+        "id": "conn-s2",
+        "sourceNodeId": "node-sum-ai",
+        "targetNodeId": "node-sum-email",
+        "sourceOutputPort": "Output",
+        "targetInputPort": "Input"
+      }
+    ],
+    "createdBy": "Sales VP",
+    "createdAt": "2026-07-05T08:00:00Z",
+    "updatedAt": "2026-07-05T08:00:00Z"
+  }
+]

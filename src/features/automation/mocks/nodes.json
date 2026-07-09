@@ -1,0 +1,130 @@
+[
+  {
+    "type": "Trigger",
+    "name": "Lead Created",
+    "inputs": [],
+    "outputs": ["Output"],
+    "configuration": {
+      "triggerType": "Lead Created"
+    }
+  },
+  {
+    "type": "Trigger",
+    "name": "Customer Created",
+    "inputs": [],
+    "outputs": ["Output"],
+    "configuration": {
+      "triggerType": "Customer Created"
+    }
+  },
+  {
+    "type": "Trigger",
+    "name": "Task Due",
+    "inputs": [],
+    "outputs": ["Output"],
+    "configuration": {
+      "triggerType": "Task Due"
+    }
+  },
+  {
+    "type": "Trigger",
+    "name": "Schedule",
+    "inputs": [],
+    "outputs": ["Output"],
+    "configuration": {
+      "triggerType": "Schedule",
+      "cronExpression": "0 9 * * 1-5"
+    }
+  },
+  {
+    "type": "Trigger",
+    "name": "Webhook",
+    "inputs": [],
+    "outputs": ["Output"],
+    "configuration": {
+      "triggerType": "Webhook",
+      "webhookUrl": "https://api.pravesha.ai/v1/webhooks/lead"
+    }
+  },
+  {
+    "type": "Condition",
+    "name": "Filter / Branch",
+    "inputs": ["Input"],
+    "outputs": ["Yes", "No"],
+    "configuration": {
+      "conditionExpression": "lead.value > 1000"
+    }
+  },
+  {
+    "type": "Action",
+    "name": "Send Email",
+    "inputs": ["Input"],
+    "outputs": ["Output"],
+    "configuration": {
+      "actionType": "Send Email",
+      "emailTemplate": "Welcome / Introduction Email"
+    }
+  },
+  {
+    "type": "Action",
+    "name": "Send WhatsApp",
+    "inputs": ["Input"],
+    "outputs": ["Output"],
+    "configuration": {
+      "actionType": "Send WhatsApp",
+      "whatsappTemplate": "optin_welcome"
+    }
+  },
+  {
+    "type": "Action",
+    "name": "Create Task",
+    "inputs": ["Input"],
+    "outputs": ["Output"],
+    "configuration": {
+      "actionType": "Create Task",
+      "taskTitle": "Call high-value lead",
+      "taskPriority": "High"
+    }
+  },
+  {
+    "type": "Action",
+    "name": "Assign User",
+    "inputs": ["Input"],
+    "outputs": ["Output"],
+    "configuration": {
+      "actionType": "Assign User",
+      "assigneeId": "user-sales-lead"
+    }
+  },
+  {
+    "type": "AI",
+    "name": "AI Lead Agent",
+    "inputs": ["Input"],
+    "outputs": ["Output"],
+    "configuration": {
+      "actionType": "Call AI",
+      "aiPrompt": "Analyze the lead's company and website description. Identify key pain points and suggest CRM products that match.",
+      "aiModel": "gemini-1.5-pro"
+    }
+  },
+  {
+    "type": "Delay",
+    "name": "Time Delay",
+    "inputs": ["Input"],
+    "outputs": ["Output"],
+    "configuration": {
+      "delayDuration": 1,
+      "delayUnit": "days"
+    }
+  },
+  {
+    "type": "Notification",
+    "name": "Push Alert",
+    "inputs": ["Input"],
+    "outputs": ["Output"],
+    "configuration": {
+      "actionType": "Notify User",
+      "notificationMessage": "Action required on high-value lead!"
+    }
+  }
+]

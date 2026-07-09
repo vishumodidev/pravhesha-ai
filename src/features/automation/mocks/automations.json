@@ -1,0 +1,128 @@
+[
+  {
+    "id": "auto-lead-enrichment",
+    "name": "High-Value Lead Enrichment",
+    "description": "Triggered when a lead is created. Uses AI to analyze company size and emails the sales representative.",
+    "status": "active",
+    "trigger": "Lead Created",
+    "nodes": [
+      {
+        "id": "node-trigger-1",
+        "type": "Trigger",
+        "name": "Lead Created",
+        "position": { "x": 100, "y": 150 },
+        "inputs": [],
+        "outputs": ["Output"],
+        "configuration": {
+          "triggerType": "Lead Created"
+        }
+      },
+      {
+        "id": "node-ai-1",
+        "type": "AI",
+        "name": "Enrich Lead Profile",
+        "position": { "x": 350, "y": 150 },
+        "inputs": ["Input"],
+        "outputs": ["Output"],
+        "configuration": {
+          "aiPrompt": "Enrich lead using public firmographics and size indicators.",
+          "aiModel": "gemini-1.5-pro"
+        }
+      },
+      {
+        "id": "node-action-1",
+        "type": "Action",
+        "name": "Send Email Alert",
+        "position": { "x": 600, "y": 150 },
+        "inputs": ["Input"],
+        "outputs": ["Output"],
+        "configuration": {
+          "actionType": "Send Email",
+          "emailTemplate": "Enriched Lead Notification"
+        }
+      }
+    ],
+    "connections": [
+      {
+        "id": "conn-101",
+        "sourceNodeId": "node-trigger-1",
+        "targetNodeId": "node-ai-1",
+        "sourceOutputPort": "Output",
+        "targetInputPort": "Input"
+      },
+      {
+        "id": "conn-102",
+        "sourceNodeId": "node-ai-1",
+        "targetNodeId": "node-action-1",
+        "sourceOutputPort": "Output",
+        "targetInputPort": "Input"
+      }
+    ],
+    "createdBy": "Admin User",
+    "createdAt": "2026-07-06T10:15:00Z",
+    "updatedAt": "2026-07-07T14:20:00Z"
+  },
+  {
+    "id": "auto-support-esc",
+    "name": "SLA Escalation workflow",
+    "description": "Triggered when a task becomes due. If unresolved, sends WhatsApp alert.",
+    "status": "inactive",
+    "trigger": "Task Due",
+    "nodes": [
+      {
+        "id": "node-trigger-2",
+        "type": "Trigger",
+        "name": "Task Due Warning",
+        "position": { "x": 100, "y": 200 },
+        "inputs": [],
+        "outputs": ["Output"],
+        "configuration": {
+          "triggerType": "Task Due"
+        }
+      },
+      {
+        "id": "node-delay-2",
+        "type": "Delay",
+        "name": "Wait 1 Hour",
+        "position": { "x": 350, "y": 200 },
+        "inputs": ["Input"],
+        "outputs": ["Output"],
+        "configuration": {
+          "delayDuration": 1,
+          "delayUnit": "hours"
+        }
+      },
+      {
+        "id": "node-whatsapp-2",
+        "type": "Action",
+        "name": "WhatsApp Manager Alert",
+        "position": { "x": 600, "y": 200 },
+        "inputs": ["Input"],
+        "outputs": ["Output"],
+        "configuration": {
+          "actionType": "Send WhatsApp",
+          "whatsappTemplate": "sla_violation_alert"
+        }
+      }
+    ],
+    "connections": [
+      {
+        "id": "conn-201",
+        "sourceNodeId": "node-trigger-2",
+        "targetNodeId": "node-delay-2",
+        "sourceOutputPort": "Output",
+        "targetInputPort": "Input"
+      },
+      {
+        "id": "conn-202",
+        "sourceNodeId": "node-delay-2",
+        "targetNodeId": "node-whatsapp-2",
+        "sourceOutputPort": "Output",
+        "targetInputPort": "Input"
+      }
+    ],
+    "createdBy": "Sarah Jenkins",
+    "createdAt": "2026-07-05T09:30:00Z",
+    "updatedAt": "2026-07-05T09:30:00Z"
+  }
+]
