@@ -70,9 +70,9 @@ export const whatsappTools = {
     return newTask;
   },
 
-  searchKnowledge: async (query: string): Promise<WhatsAppKnowledgeDoc[]> => {
+  searchKnowledge: async (query: string): Promise<any[]> => {
     console.log(`[WhatsApp Tool] searchKnowledge called for query: "${query}"`);
-    return whatsappKnowledge.search(query).map(r => r.doc);
+    return whatsappKnowledge.search(query);
   },
 
   sendWhatsAppReply: async (phone: string, text: string): Promise<WhatsAppMessage> => {
